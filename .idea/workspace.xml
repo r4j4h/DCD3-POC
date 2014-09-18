@@ -26,7 +26,16 @@
       <file leaf-file-name="crossfiltertest.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/crossfiltertest.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="35" selection-start="693" selection-end="693" vertical-scroll-proportion="0.11933174" vertical-offset="0" max-vertical-offset="4035">
+            <state line="19" column="31" selection-start="967" selection-end="967" vertical-scroll-proportion="0.22673032" vertical-offset="0" max-vertical-offset="1257">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="crossfiltertest.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/crossfiltertest.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="151" column="27" selection-start="6867" selection-end="6867" vertical-scroll-proportion="0.0" vertical-offset="2139" max-vertical-offset="3480">
               <folding />
             </state>
           </provider>
@@ -73,8 +82,9 @@
       <list>
         <option value="$PROJECT_DIR$/data/referral-data.json" />
         <option value="$PROJECT_DIR$/data/referral-query-results.json" />
-        <option value="$PROJECT_DIR$/crossfiltertest.html" />
         <option value="$PROJECT_DIR$/data/referral-dimension-data.json" />
+        <option value="$PROJECT_DIR$/js/crossfiltertest-clean.js" />
+        <option value="$PROJECT_DIR$/crossfiltertest.html" />
       </list>
     </option>
   </component>
@@ -140,7 +150,71 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCD3-POC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCD3-POC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCD3-POC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCD3-POC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCD3-POC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCD3-POC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCD3-POC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCD3-POC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -228,13 +302,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/crossfiltertest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="17" selection-start="6091" selection-end="6091" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4035">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/referral-dimension-data.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="28" selection-start="966" selection-end="966" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1695">
@@ -265,13 +332,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crossfiltertest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="187" selection-start="2775" selection-end="2775" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="3330">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/referral-query-results.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="223" column="20" selection-start="5324" selection-end="5324" vertical-scroll-proportion="0.0" vertical-offset="3248" max-vertical-offset="4065">
@@ -289,13 +349,6 @@
     <entry file="file://$PROJECT_DIR$/data/sample-query-result-payload.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="40" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3540">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crossfiltertest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="38" selection-start="8732" selection-end="8732" vertical-scroll-proportion="0.0" vertical-offset="1840" max-vertical-offset="3330">
           <folding />
         </state>
       </provider>
@@ -349,9 +402,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/crossfiltertest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="151" column="27" selection-start="6867" selection-end="6867" vertical-scroll-proportion="0.0" vertical-offset="2139" max-vertical-offset="3480">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/crossfiltertest.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="35" selection-start="693" selection-end="693" vertical-scroll-proportion="0.11933174" vertical-offset="0" max-vertical-offset="4035">
+        <state line="19" column="31" selection-start="967" selection-end="967" vertical-scroll-proportion="0.22673032" vertical-offset="0" max-vertical-offset="1257">
           <folding />
         </state>
       </provider>

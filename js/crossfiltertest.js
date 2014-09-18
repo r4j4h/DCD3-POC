@@ -1,5 +1,5 @@
-
 var referralData;
+var dimensionData;
 
 //        var referralData = [
 //            {date: "2013-04-01", typeId: 1, sourceId: 11, facilityId: 111, referralCount: 10, active_patients: 7, discharged_patients: 2, not_yet_seen: 1, shrinkage: 10.00},
@@ -34,10 +34,11 @@ function print_filter(filter) {
     console.log(filter + "(" + f.length + ") = " + JSON.stringify(f).replace("[", "[\n\t").replace(/}\,/g, "},\n\t").replace("]", "\n]"));
 }
 
-function loadJSON(callback) {
+function loadJSON(url, callback) {
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'data/referral-data.json', true);
+    xobj.open('GET', url, true);
+//            xobj.open('GET', 'data/referral-query-results.json', true);
     xobj.onreadystatechange = function () {
         if (xobj.readyState == 4 && xobj.status == "200") {
             // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
@@ -47,10 +48,50 @@ function loadJSON(callback) {
     xobj.send(null);
 }
 
+function initDimensions(response) {
+    // Parse JSON string into object
+    dimensionData = JSON.parse(response);
+    console.log(dimensionData);
+}
+
+function applyDimensionNames(dimensionData, referralData) {
+    console.log(referralData.length);
+
+    console.log(referralData.length);
+    for (var i=0; i<referralData.length; i++) {
+        console.log(referralData[i].facilityId);
+        for (var j=0; j<dimensionData.data["facilities"].length; j++) {
+            if (dimensionData.data["facilities"][j].id == referralData[i].facilityId) {
+                referralData[i].facilityName = dimensionData.data["facilities"][j].name;
+                console.log(dimensionData.data["facilities"][j].name);
+                break;
+            }
+        }
+
+        for (var j=0; j<dimensionData.data["referralTypes"].length; j++) {
+            if (dimensionData.data["referralTypes"][j].id == referralData[i].typeId) {
+                referralData[i].referralTypeName = dimensionData.data["referralTypes"][j].name;
+                console.log(dimensionData.data["referralTypes"][j].name);
+                break;
+            }
+        }
+
+        for (var j=0; j<dimensionData.data["referralSources"].length; j++) {
+            if (dimensionData.data["referralSources"][j].id == referralData[i].sourceId) {
+                referralData[i].referralSourceName = dimensionData.data["referralSources"][j].name;
+                console.log(dimensionData.data["referralSources"][j].name);
+                break;
+            }
+        }
+    }
+}
+
 function render(response) {
     // Parse JSON string into object
     referralData = JSON.parse(response);
     console.log(referralData);
+
+    applyDimensionNames(dimensionData, referralData);
 
     var ndx = crossfilter(referralData);
 
@@ -68,7 +109,7 @@ function render(response) {
         return d.date;
     });
     var clinicDim = ndx.dimension(function (d) {
-        return d.facilityId
+        return d.facilityName
     });
     var clinicTotal = clinicDim.group().reduceSum(dc.pluck('referralCount'));
     var sourceActivePatients = dateDim.group().reduceSum(function (d) {
@@ -82,12 +123,12 @@ function render(response) {
     });
 
     var typeDim = ndx.dimension(function (d) {
-        return d.typeId
+        return d.referralTypeName
     });
     var typeTotal = typeDim.group().reduceSum(dc.pluck('referralCount'));
 
     var sourceDim = ndx.dimension(function (d) {
-        return d.sourceId
+        return d.referralSourceName
     });
     var sourceTotal = sourceDim.group().reduceSum(dc.pluck('referralCount'));
 
@@ -144,13 +185,13 @@ function render(response) {
         // dynamic columns creation using an array of closures
         .columns([
             function (d) {
-                return d.sourceId;
+                return d.referralSourceName;
             },
             function (d) {
-                return d.typeId;
+                return d.referralTypeName;
             },
             function (d) {
-                return d.facilityId;
+                return d.facilityName;
             },
             function (d) {
                 return d.active_patients;
@@ -176,5 +217,10 @@ function render(response) {
 }
 
 function init() {
-    loadJSON(render);
+    loadJSON('data/referral-dimension-data.json', initDimensions);
+}
+
+function displayCharts() {
+    init();
+    loadJSON('data/referral-query-results.json', render);
 }
