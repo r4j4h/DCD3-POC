@@ -16,10 +16,26 @@
 </head>
 <body onload="displayCharts()">
 
-<div id="chart-pie-clinic"></div>
-<div id="chart-pie-type"></div>
-<div id="chart-pie-source"></div>
-<div id="chart-line-referrals-totals"></div>
+<div id="charts">
+    <div class="chart-box">
+        <div id="chart-pie-clinic"></div>
+        <label>Referral Counts by Clinic</label>
+    </div>
+    <div class="chart-box">
+        <div id="chart-pie-type"></div>
+        <label>Referral Counts by Referral Type</label>
+    </div>
+    <div class="chart-box">
+        <div id="chart-pie-source"></div>
+        <label>Referral Counts by Referral Source</label>
+    </div>
+
+    <div class="chart-box wide">
+        <div id="chart-line-referrals-totals"></div>
+    </div>
+</div>
+
+
 <div id="sources-data-table-container">
     <table id="sources-data-table">
         <thead>

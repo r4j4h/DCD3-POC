@@ -1,3 +1,33 @@
+/* Undo dc.css */
+div.dc-chart {
+    float: none;
+}
+
+body {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#charts {
+    overflow: auto;
+    margin: 1em 0;
+}
+
+.chart-box {
+    float:left;
+    padding: 0.3em 2em;
+    text-align: center;
+    min-width: 10em;
+    width: 33%;
+    box-sizing: border-box;
+}
+
+.chart-box.wide {
+    width: 100%;
+}
+
+.chart-box div {}
+.chart-box label {display:block;}
 #chart-pie-clinic {
 
 }
@@ -8,7 +38,6 @@
 
 #chart-pie-source {
 
-
 }
 
 #chart-line-referrals-totals {
@@ -17,4 +46,26 @@
 
 #sources-data-table-container {
     clear:both;
+    border:1px solid gray;
+    margin: 1em 0;
+}
+
+#sources-data-table {
+    width: 100%;
+}
+
+#sources-data-table-container tbody {
+
+    border:1px solid green;
+}
+
+
+#sources-data-table-container tbody tr {
+
+    border:1px solid blue;
+}
+
+
+#sources-data-table-container tbody tr td {
+    border:1px solid red;
 }
