@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="js/vendor/crossfilter.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/vendor/d3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/vendor/dc.min.js" charset="utf-8"></script>
+    <!--<script type="text/javascript" src="https://test.webpt.localhost/www/php-druid-query/examples/ChartingPOC/crossfilter.min.js"></script>-->
+    <!--<script type="text/javascript" src="https://rawgithub.com/NickQiZhu/dc.js/master/web/js/crossfilter.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="./css/dc.css" media="screen"/>
+
+    <script type="text/javascript" src="js/crossfiltertest-clean.js" charset="utf-8"></script>
+
+    <title>TESTING!!!</title>
+</head>
+<body onload="init()">
+
+</body>
+<div id="chart-pie-clinic"></div>
+<div id="chart-pie-type"></div>
+<div id="chart-pie-source"></div>
+<div id="chart-line-referrals-totals" style='clear:both;'></div>
+<div style='clear:both;'>
+    <table id="sources-data-table">
+        <thead>
+        <tr class="header">
+            <th>Source</th>
+            <th>Type</th>
+            <th>Facility</th>
+            <th>Active</th>
+            <th>Discharged</th>
+            <th>Not Yet Seen</th>
+            <th>Total</th>
+            <th>Shrinkage</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+</html>
