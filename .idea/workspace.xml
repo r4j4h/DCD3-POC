@@ -26,16 +26,16 @@
       <file leaf-file-name="sample-query-result-payload.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/sample-query-result-payload.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="40" selection-start="1402" selection-end="1402" vertical-scroll-proportion="-25.0" vertical-offset="0" max-vertical-offset="3540">
+            <state line="40" column="40" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="3540">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="crossfiltertest.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="crossfiltertest.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crossfiltertest.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="170" column="38" selection-start="8732" selection-end="8732" vertical-scroll-proportion="0.5748988" vertical-offset="1840" max-vertical-offset="3330">
+            <state line="24" column="187" selection-start="2775" selection-end="2775" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="3330">
               <folding>
                 <element signature="n#style#0;n#div#3;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#4;n#html#0;n#!!top" expanded="true" />
@@ -44,10 +44,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="referral-data.json" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="referral-data.json" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/referral-data.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="214" column="26" selection-start="5055" selection-end="5055" vertical-scroll-proportion="-20.583334" vertical-offset="2716" max-vertical-offset="4065">
+            <state line="223" column="20" selection-start="5324" selection-end="5324" vertical-scroll-proportion="0.12813738" vertical-offset="3248" max-vertical-offset="4065">
               <folding />
             </state>
           </provider>
@@ -56,7 +56,7 @@
       <file leaf-file-name="test.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="1158" selection-end="1158" vertical-scroll-proportion="-20.625" vertical-offset="0" max-vertical-offset="585">
+            <state line="33" column="0" selection-start="1158" selection-end="1158" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="585">
               <folding />
             </state>
           </provider>
@@ -72,17 +72,17 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/data/referral-data.json" />
         <option value="$PROJECT_DIR$/crossfiltertest.html" />
+        <option value="$PROJECT_DIR$/data/referral-data.json" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="OSX Zend" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="7" />
+    <option name="x" value="33" />
     <option name="y" value="22" />
-    <option name="width" value="2006" />
-    <option name="height" value="1410" />
+    <option name="width" value="1407" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -110,31 +110,32 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ReferralReportChartingPOC" />
+              <option name="myItemId" value="DCD3-POC" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ReferralReportChartingPOC" />
+              <option name="myItemId" value="DCD3-POC" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ReferralReportChartingPOC" />
+              <option name="myItemId" value="DCD3-POC" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ReferralReportChartingPOC" />
+              <option name="myItemId" value="DCD3-POC" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ReferralReportChartingPOC" />
+              <option name="myItemId" value="DCD3-POC" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -144,7 +145,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -172,7 +172,7 @@
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="476a30d2-bf26-48fe-9ee5-2a64a79ea26b" server_name="EMRAuditLog">
       <method />
     </configuration>
     <list size="0" />
@@ -187,20 +187,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="7" y="22" width="2006" height="1410" extended-state="0" />
+    <frame x="33" y="22" width="1407" height="878" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17447656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17412935" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -227,48 +227,75 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/css/dc.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4845">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crossfiltertest-tut.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="0" selection-start="4317" selection-end="5165" vertical-scroll-proportion="-52.458332" vertical-offset="211" max-vertical-offset="2205">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="1158" selection-end="1158" vertical-scroll-proportion="-20.625" vertical-offset="0" max-vertical-offset="585">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/referral-data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="214" column="26" selection-start="5055" selection-end="5055" vertical-scroll-proportion="-20.583334" vertical-offset="2716" max-vertical-offset="4065">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/sample-query-result-payload.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="40" selection-start="1402" selection-end="1402" vertical-scroll-proportion="-25.0" vertical-offset="0" max-vertical-offset="3540">
+        <state line="40" column="40" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3540">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/crossfiltertest.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="38" selection-start="8732" selection-end="8732" vertical-scroll-proportion="0.5748988" vertical-offset="1840" max-vertical-offset="3330">
+        <state line="170" column="38" selection-start="8732" selection-end="8732" vertical-scroll-proportion="0.0" vertical-offset="1840" max-vertical-offset="3330">
           <folding>
             <element signature="n#style#0;n#div#3;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#4;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/referral-data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="214" column="26" selection-start="5055" selection-end="5055" vertical-scroll-proportion="0.0" vertical-offset="3210" max-vertical-offset="4065">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="1158" selection-end="1158" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/dc.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4845" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crossfiltertest-tut.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="0" selection-start="4317" selection-end="5165" vertical-scroll-proportion="-52.458332" vertical-offset="211" max-vertical-offset="2205" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="1158" selection-end="1158" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/sample-query-result-payload.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="40" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="3540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crossfiltertest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="187" selection-start="2775" selection-end="2775" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="3330">
+          <folding>
+            <element signature="n#style#0;n#div#3;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/referral-data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="223" column="20" selection-start="5324" selection-end="5324" vertical-scroll-proportion="0.12813738" vertical-offset="3248" max-vertical-offset="4065">
+          <folding />
         </state>
       </provider>
     </entry>

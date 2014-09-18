@@ -8,7 +8,7 @@
         "active_patients": 7,
         "discharged_patients": 2,
         "not_yet_seen": 1,
-        "shrinkage": 10
+        "shrinkage": 10.25
     },
     {
         "date": "2013-04-01",
@@ -19,7 +19,7 @@
         "active_patients": 14,
         "discharged_patients": 4,
         "not_yet_seen": 2,
-        "shrinkage": 20
+        "shrinkage": 20.50
     },
     {
         "date": "2013-04-01",
@@ -30,7 +30,7 @@
         "active_patients": 21,
         "discharged_patients": 6,
         "not_yet_seen": 3,
-        "shrinkage": 30
+        "shrinkage": 30.35
     },
     {
         "date": "2013-04-01",
@@ -41,7 +41,7 @@
         "active_patients": 2,
         "discharged_patients": 7,
         "not_yet_seen": 6,
-        "shrinkage": 15
+        "shrinkage": 15.45
     },
     {
         "date": "2013-04-01",
@@ -52,7 +52,7 @@
         "active_patients": 4,
         "discharged_patients": 14,
         "not_yet_seen": 7,
-        "shrinkage": 25
+        "shrinkage": 25.75
     },
     {
         "date": "2013-04-01",
@@ -63,7 +63,7 @@
         "active_patients": 6,
         "discharged_patients": 21,
         "not_yet_seen": 8,
-        "shrinkage": 35
+        "shrinkage": 35.85
     },
     {
         "date": "2013-05-01",
@@ -74,7 +74,7 @@
         "active_patients": 8,
         "discharged_patients": 2,
         "not_yet_seen": 1,
-        "shrinkage": 10
+        "shrinkage": 10.25
     },
     {
         "date": "2013-05-01",
@@ -85,7 +85,7 @@
         "active_patients": 14,
         "discharged_patients": 4,
         "not_yet_seen": 2,
-        "shrinkage": 20
+        "shrinkage": 20.65
     },
     {
         "date": "2013-05-01",
@@ -96,7 +96,7 @@
         "active_patients": 21,
         "discharged_patients": 6,
         "not_yet_seen": 3,
-        "shrinkage": 30
+        "shrinkage": 30.33
     },
     {
         "date": "2013-05-01",
@@ -107,7 +107,7 @@
         "active_patients": 3,
         "discharged_patients": 7,
         "not_yet_seen": 6,
-        "shrinkage": 16
+        "shrinkage": 16.11
     },
     {
         "date": "2013-05-01",
@@ -118,7 +118,7 @@
         "active_patients": 5,
         "discharged_patients": 14,
         "not_yet_seen": 7,
-        "shrinkage": 26
+        "shrinkage": 26.50
     },
     {
         "date": "2013-05-01",
@@ -129,7 +129,7 @@
         "active_patients": 7,
         "discharged_patients": 21,
         "not_yet_seen": 8,
-        "shrinkage": 36
+        "shrinkage": 36.80
     },
     {
         "date": "2013-06-01",
@@ -140,7 +140,7 @@
         "active_patients": 7,
         "discharged_patients": 2,
         "not_yet_seen": 1,
-        "shrinkage": 10
+        "shrinkage": 10.70
     },
     {
         "date": "2013-06-01",
@@ -151,7 +151,7 @@
         "active_patients": 14,
         "discharged_patients": 4,
         "not_yet_seen": 2,
-        "shrinkage": 20
+        "shrinkage": 20.05
     },
     {
         "date": "2013-06-01",
@@ -162,7 +162,7 @@
         "active_patients": 21,
         "discharged_patients": 6,
         "not_yet_seen": 3,
-        "shrinkage": 30
+        "shrinkage": 30.67
     },
     {
         "date": "2013-06-01",
@@ -173,7 +173,7 @@
         "active_patients": 2,
         "discharged_patients": 7,
         "not_yet_seen": 6,
-        "shrinkage": 15
+        "shrinkage": 15.35
     },
     {
         "date": "2013-06-01",
@@ -184,7 +184,7 @@
         "active_patients": 4,
         "discharged_patients": 14,
         "not_yet_seen": 7,
-        "shrinkage": 25
+        "shrinkage": 25.50
     },
     {
         "date": "2013-06-01",
@@ -195,7 +195,7 @@
         "active_patients": 6,
         "discharged_patients": 21,
         "not_yet_seen": 8,
-        "shrinkage": 35
+        "shrinkage": 35.60
     },
     {
         "date": "2013-07-01",
@@ -206,7 +206,7 @@
         "active_patients": 8,
         "discharged_patients": 2,
         "not_yet_seen": 1,
-        "shrinkage": 10
+        "shrinkage": 10.75
     },
     {
         "date": "2013-07-01",
@@ -217,7 +217,7 @@
         "active_patients": 14,
         "discharged_patients": 4,
         "not_yet_seen": 2,
-        "shrinkage": 20
+        "shrinkage": 20.28
     },
     {
         "date": "2013-07-01",
@@ -228,7 +228,7 @@
         "active_patients": 21,
         "discharged_patients": 6,
         "not_yet_seen": 3,
-        "shrinkage": 30
+        "shrinkage": 30.56
     },
     {
         "date": "2013-07-01",
@@ -239,7 +239,7 @@
         "active_patients": 3,
         "discharged_patients": 7,
         "not_yet_seen": 6,
-        "shrinkage": 16
+        "shrinkage": 16.90
     },
     {
         "date": "2013-07-01",
@@ -250,7 +250,7 @@
         "active_patients": 5,
         "discharged_patients": 14,
         "not_yet_seen": 7,
-        "shrinkage": 26
+        "shrinkage": 26.95
     },
     {
         "date": "2013-07-01",
@@ -261,6 +261,6 @@
         "active_patients": 7,
         "discharged_patients": 21,
         "not_yet_seen": 8,
-        "shrinkage": 36
+        "shrinkage": 36.65
     }
 ]
