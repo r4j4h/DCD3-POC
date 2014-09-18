@@ -1,0 +1,231 @@
+{
+    "status": "success",
+    "data": [
+        {
+            "timestamp": "2013-04-01T00:00:00.000Z",
+            "result": [
+                {
+                    "typeId": 123,
+                    "sourceId": 1111,
+                    "facility_id": "3",
+                    "referral_count": 412,
+                    "active_patients": 400,
+                    "inactive_patients": 12,
+                    "shrinkage": "33.33"
+                },
+                {
+                    "typeId": 123,
+                    "sourceId": 2222,
+                    "facility_id": "3",
+                    "referral_count": 412,
+                    "active_patients": 400,
+                    "inactive_patients": 12,
+                    "shrinkage": "33.33"
+                },
+                {
+                    "typeId": 123,
+                    "sourceId": 3333,
+                    "facility_id": "3",
+                    "referral_count": 412,
+                    "active_patients": 400,
+                    "inactive_patients": 12,
+                    "shrinkage": "33.33"
+                },
+                {
+                    "typeId": 1234,
+                    "sourceId": 11112,
+                    "facility_id": "3",
+                    "referral_count": 412,
+                    "active_patients": 400,
+                    "inactive_patients": 12,
+                    "shrinkage": "33.33"
+                },
+                {
+                    "typeId": 1234,
+                    "sourceId": 22223,
+                    "facility_id": "3",
+                    "referral_count": 412,
+                    "active_patients": 400,
+                    "inactive_patients": 12,
+                    "shrinkage": "33.33"
+                },
+                {
+                    "typeId": 1234,
+                    "sourceId": 33334,
+                    "facility_id": "3",
+                    "referral_count": 412,
+                    "active_patients": 400,
+                    "inactive_patients": 12,
+                    "shrinkage": "33.33"
+                },
+                {
+                    "typeId": 123,
+                    "sourceId": 7777,
+                    "facility_id": "4",
+                    "referral_count": 37,
+                    "active_patients": 18,
+                    "inactive_patients": 19,
+                    "shrinkage": "94.00"
+                },
+                {
+                    "typeId": 123,
+                    "sourceId": 8888,
+                    "facility_id": "4",
+                    "referral_count": 37,
+                    "active_patients": 18,
+                    "inactive_patients": 19,
+                    "shrinkage": "94.00"
+                },
+                {
+                    "typeId": 123,
+                    "sourceId": 9999,
+                    "facility_id": "4",
+                    "referral_count": 37,
+                    "active_patients": 18,
+                    "inactive_patients": 19,
+                    "shrinkage": "94.00"
+                },
+                {
+                    "typeId": 1234,
+                    "sourceId": 77772,
+                    "facility_id": "4",
+                    "referral_count": 37,
+                    "active_patients": 18,
+                    "inactive_patients": 19,
+                    "shrinkage": "94.00"
+                },
+                {
+                    "typeId": 1234,
+                    "sourceId": 88883,
+                    "facility_id": "4",
+                    "referral_count": 37,
+                    "active_patients": 18,
+                    "inactive_patients": 19,
+                    "shrinkage": "94.00"
+                },
+                {
+                    "typeId": 1234,
+                    "sourceId": 99994,
+                    "facility_id": "4",
+                    "referral_count": 37,
+                    "active_patients": 18,
+                    "inactive_patients": 19,
+                    "shrinkage": "94.00"
+                }
+            ]
+        },
+        {
+            "timestamp": "2013-05-01T00:00:00.000Z",
+            "result": [
+                {
+                    "typeId": 123,
+                    "sourceId": 1111,
+                    "facility_id": "3",
+                    "referral_count": 412,
+                    "active_patients": 400,
+                    "inactive_patients": 12,
+                    "shrinkage": "33.33"
+                },
+                {
+                    "typeId": 123,
+                    "sourceId": 2222,
+                    "facility_id": "3",
+                    "referral_count": 412,
+                    "active_patients": 400,
+                    "inactive_patients": 12,
+                    "shrinkage": "33.33"
+                },
+                {
+                    "typeId": 123,
+                    "sourceId": 3333,
+                    "facility_id": "3",
+                    "referral_count": 412,
+                    "active_patients": 400,
+                    "inactive_patients": 12,
+                    "shrinkage": "33.33"
+                },
+                {
+                    "typeId": 1234,
+                    "sourceId": 11112,
+                    "facility_id": "3",
+                    "referral_count": 412,
+                    "active_patients": 400,
+                    "inactive_patients": 12,
+                    "shrinkage": "33.33"
+                },
+                {
+                    "typeId": 1234,
+                    "sourceId": 22223,
+                    "facility_id": "3",
+                    "referral_count": 412,
+                    "active_patients": 400,
+                    "inactive_patients": 12,
+                    "shrinkage": "33.33"
+                },
+                {
+                    "typeId": 1234,
+                    "sourceId": 33334,
+                    "facility_id": "3",
+                    "referral_count": 412,
+                    "active_patients": 400,
+                    "inactive_patients": 12,
+                    "shrinkage": "33.33"
+                },
+                {
+                    "typeId": 123,
+                    "sourceId": 7777,
+                    "facility_id": "4",
+                    "referral_count": 37,
+                    "active_patients": 18,
+                    "inactive_patients": 19,
+                    "shrinkage": "94.00"
+                },
+                {
+                    "typeId": 123,
+                    "sourceId": 8888,
+                    "facility_id": "4",
+                    "referral_count": 37,
+                    "active_patients": 18,
+                    "inactive_patients": 19,
+                    "shrinkage": "94.00"
+                },
+                {
+                    "typeId": 123,
+                    "sourceId": 9999,
+                    "facility_id": "4",
+                    "referral_count": 37,
+                    "active_patients": 18,
+                    "inactive_patients": 19,
+                    "shrinkage": "94.00"
+                },
+                {
+                    "typeId": 1234,
+                    "sourceId": 77772,
+                    "facility_id": "4",
+                    "referral_count": 37,
+                    "active_patients": 18,
+                    "inactive_patients": 19,
+                    "shrinkage": "94.00"
+                },
+                {
+                    "typeId": 1234,
+                    "sourceId": 88883,
+                    "facility_id": "4",
+                    "referral_count": 37,
+                    "active_patients": 18,
+                    "inactive_patients": 19,
+                    "shrinkage": "94.00"
+                },
+                {
+                    "typeId": 1234,
+                    "sourceId": 99994,
+                    "facility_id": "4",
+                    "referral_count": 37,
+                    "active_patients": 18,
+                    "inactive_patients": 19,
+                    "shrinkage": "94.00"
+                }
+            ]
+        }
+    ]
+}

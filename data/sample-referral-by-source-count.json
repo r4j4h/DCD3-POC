@@ -1,0 +1,904 @@
+{
+    "status": "success",
+    "data": {
+        "referralCountsByClinicAndType": [
+            {
+                "date": "2014-04-01 00:00:00 UTC",
+                "facilities": [
+                    {
+                        "id": 111,
+                        "displayName": "GoodHealth Clinic",
+                        "referralTypes": [
+                            {
+                                "id": 123,
+                                "displayName": "Marketing",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Google",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Yahoo",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 234,
+                                "displayName": "Physicians",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Dr. Sam",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Dr. Jasmine",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 222,
+                        "displayName": "HealMePlease Clinic",
+                        "referralTypes": [
+                            {
+                                "id": 123,
+                                "displayName": "Marketing",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Google",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Yahoo",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 234,
+                                "displayName": "Physicians",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Google",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Yahoo",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 333,
+                        "displayName": "ICreakPleaseHelp Clinic",
+                        "referralTypes": [
+                            {
+                                "id": 123,
+                                "displayName": "Marketing",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Google",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Yahoo",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 234,
+                                "displayName": "Physicians",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Google",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Yahoo",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "date": "2014-05-01 00:00:00 UTC",
+                "facilities": [
+                    {
+                        "id": 111,
+                        "displayName": "GoodHealth Clinic",
+                        "referralTypes": [
+                            {
+                                "id": 123,
+                                "displayName": "Marketing",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Google",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Yahoo",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 234,
+                                "displayName": "Physicians",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Dr. Sam",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Dr. Jasmine",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 222,
+                        "displayName": "HealMePlease Clinic",
+                        "referralTypes": [
+                            {
+                                "id": 123,
+                                "displayName": "Marketing",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Google",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Yahoo",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 234,
+                                "displayName": "Physicians",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Google",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Yahoo",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 333,
+                        "displayName": "ICreakPleaseHelp Clinic",
+                        "referralTypes": [
+                            {
+                                "id": 123,
+                                "displayName": "Marketing",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Google",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Yahoo",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 234,
+                                "displayName": "Physicians",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Google",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Yahoo",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "date": "2014-06-01 00:00:00 UTC",
+                "facilities": [
+                    {
+                        "id": 111,
+                        "displayName": "GoodHealth Clinic",
+                        "referralTypes": [
+                            {
+                                "id": 123,
+                                "displayName": "Marketing",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Google",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Yahoo",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 234,
+                                "displayName": "Physicians",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Dr. Sam",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Dr. Jasmine",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 222,
+                        "displayName": "HealMePlease Clinic",
+                        "referralTypes": [
+                            {
+                                "id": 123,
+                                "displayName": "Marketing",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Google",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Yahoo",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 234,
+                                "displayName": "Physicians",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Google",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Yahoo",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 333,
+                        "displayName": "ICreakPleaseHelp Clinic",
+                        "referralTypes": [
+                            {
+                                "id": 123,
+                                "displayName": "Marketing",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Google",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Yahoo",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 234,
+                                "displayName": "Physicians",
+                                "referralSources": [
+                                    {
+                                        "displayName": "Google",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "displayName": "Yahoo",
+                                        "referralCounts": [
+                                            {
+                                                "id": 100,
+                                                "count": 60,
+                                                "displayName": "active patients"
+                                            },
+                                            {
+                                                "id": 200,
+                                                "count": 50,
+                                                "displayName": "inactive patients"
+                                            },
+                                            {
+                                                "id": 300,
+                                                "count": 33.33,
+                                                "displayName": "shrinkage"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
