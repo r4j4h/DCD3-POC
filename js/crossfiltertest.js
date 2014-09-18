@@ -51,7 +51,7 @@ function loadJSON(url, callback) {
 function initDimensions(response) {
     // Parse JSON string into object
     dimensionData = JSON.parse(response);
-    console.log(dimensionData);
+//    console.log(dimensionData);
 }
 
 function applyDimensionNames(dimensionData, referralData) {
@@ -89,7 +89,7 @@ function applyDimensionNames(dimensionData, referralData) {
 function render(response) {
     // Parse JSON string into object
     referralData = JSON.parse(response);
-    console.log(referralData);
+//    console.log(referralData);
 
     applyDimensionNames(dimensionData, referralData);
 
@@ -162,7 +162,7 @@ function render(response) {
 
     var referralsLineChart = dc.lineChart("#chart-line-referrals-totals");
     referralsLineChart
-        .width(500).height(200)
+        .height(200)
         .dimension(dateDim)
         .group(sourceActivePatients, "Active")
         .stack(sourceDischargedPatients, "Discharged")
