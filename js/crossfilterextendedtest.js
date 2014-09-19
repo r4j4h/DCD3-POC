@@ -207,11 +207,6 @@ function render(response) {
     dc.renderAll();
 }
 
-function init() {
-    loadJSON('data/referral-dimension-data-extended.json', processDimensions);
-}
-
 function displayCharts() {
-    init();
-//    loadJSON('data/referral-query-results.json', render);
+    loadJSON('data/referral-dimension-data-extended.json', processDimensions);
 }

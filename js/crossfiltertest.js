@@ -52,6 +52,7 @@ function initDimensions(response) {
     // Parse JSON string into object
     dimensionData = JSON.parse(response);
 //    console.log(dimensionData);
+    loadJSON('data/referral-query-results.json', render);
 }
 
 function applyDimensionNames(dimensionData, referralData) {
@@ -216,11 +217,6 @@ function render(response) {
     dc.renderAll();
 }
 
-function init() {
-    loadJSON('data/referral-dimension-data.json', initDimensions);
-}
-
 function displayCharts() {
-    init();
-    loadJSON('data/referral-query-results.json', render);
+    loadJSON('data/referral-dimension-data.json', initDimensions);
 }
