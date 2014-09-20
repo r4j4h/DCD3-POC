@@ -92,6 +92,11 @@ function render(response) {
     dataTranslation(dimensionData, referralData);
 
     var ndx = crossfilter(referralData);
+    var ndxClinic0 = crossfilter(referralData);
+    var ndxClinic1 = crossfilter(referralData);
+    var ndxClinic2 = crossfilter(referralData);
+    var ndxClinic3 = crossfilter(referralData);
+    var ndxClinic4 = crossfilter(referralData);
 
 //            var parseDate = d3.time.format("%m/%d/%Y").parse;
 //            var parseDate = d3.time.format("%Y-%m-%dT%H:%M:%SZ");
@@ -106,9 +111,7 @@ function render(response) {
     var dateDim = ndx.dimension(function (d) {
         return d.date;
     });
-    var clinicIdDim = ndx.dimension(function (d) {
-        return d.facilityId
-    });
+
     var clinicDim = ndx.dimension(function (d) {
         return d.facilityName
     });
@@ -123,6 +126,41 @@ function render(response) {
         return d.referralSourceName
     });
     var sourceTotal = sourceDim.group().reduceSum(dc.pluck('referralCount'));
+
+    var clinicDateDim0 = ndxClinic0.dimension(function (d) {
+        return d.date;
+    });
+    var clinicIdDim0 = ndxClinic0.dimension(function (d) {
+        return d.facilityId
+    });
+
+    var clinicDateDim1 = ndxClinic1.dimension(function (d) {
+        return d.date;
+    });
+    var clinicIdDim1 = ndxClinic1.dimension(function (d) {
+        return d.facilityId
+    });
+
+    var clinicDateDim2 = ndxClinic2.dimension(function (d) {
+        return d.date;
+    });
+    var clinicIdDim2 = ndxClinic2.dimension(function (d) {
+        return d.facilityId
+    });
+
+    var clinicDateDim3 = ndxClinic3.dimension(function (d) {
+        return d.date;
+    });
+    var clinicIdDim3 = ndxClinic3.dimension(function (d) {
+        return d.facilityId
+    });
+
+    var clinicDateDim4 = ndxClinic4.dimension(function (d) {
+        return d.date;
+    });
+    var clinicIdDim4 = ndxClinic4.dimension(function (d) {
+        return d.facilityId
+    });
 
 //    for (var i=0; i<5; i++) {
 ////        clinicReferralTotals[i] = clinicIdDim.group().reduceSum(function(d) {return d.referralCount;});
@@ -194,18 +232,18 @@ function render(response) {
 ////            .ticks(d3.time.months, 1)
 ////            .tickFormat(d3.time.format('%b %Y')));
 
-    var clinicReferralTotals = [];
-    var a = 0;
-    var aa = 1;
-    var aaa = 2;
-    var aaaa = 3;
-    var aaaaa = 4;
-
-    clinicReferralTotals[0] = dateDim.group().reduceSum(function(d) {if (d.facilityId===a) return d.referralCount;return 0;});
-    clinicReferralTotals[1] = dateDim.group().reduceSum(function(d) {if (d.facilityId===aa) return d.referralCount;return 0;});
-    clinicReferralTotals[2] = dateDim.group().reduceSum(function(d) {if (d.facilityId===aaa) return d.referralCount;return 0;});
-    clinicReferralTotals[3] = dateDim.group().reduceSum(function(d) {if (d.facilityId===aaaa) return d.referralCount;return 0;});
-    clinicReferralTotals[4] = dateDim.group().reduceSum(function(d) {if (d.facilityId===aaaaa) return d.referralCount;return 0;});
+//    var clinicReferralTotals = [];
+//    var a = 0;
+//    var aa = 1;
+//    var aaa = 2;
+//    var aaaa = 3;
+//    var aaaaa = 4;
+//
+//    clinicReferralTotals[0] = dateDim.group().reduceSum(function(d) {if (d.facilityId===a) return d.referralCount;return 0;});
+//    clinicReferralTotals[1] = dateDim.group().reduceSum(function(d) {if (d.facilityId===aa) return d.referralCount;return 0;});
+//    clinicReferralTotals[2] = dateDim.group().reduceSum(function(d) {if (d.facilityId===aaa) return d.referralCount;return 0;});
+//    clinicReferralTotals[3] = dateDim.group().reduceSum(function(d) {if (d.facilityId===aaaa) return d.referralCount;return 0;});
+//    clinicReferralTotals[4] = dateDim.group().reduceSum(function(d) {if (d.facilityId===aaaaa) return d.referralCount;return 0;});
 
 //    var obj = {};
 //    var varPreface = "a";
@@ -228,11 +266,12 @@ function render(response) {
 //        clinicReferralTotals[i] = dateDim.group().reduceSum(function(d) {if (d.facilityId===facilityIdVars[i]) return d.referralCount;return 0;});
 //    }
 
-//    clinicReferralTotals[0] = dateDim.group().reduceSum(function(d) {if (d.facilityId===0) return d.referralCount;return 0;});
-//    clinicReferralTotals[1] = dateDim.group().reduceSum(function(d) {if (d.facilityId===1) return d.referralCount;return 0;});
-//    clinicReferralTotals[2] = dateDim.group().reduceSum(function(d) {if (d.facilityId===2) return d.referralCount;return 0;});
-//    clinicReferralTotals[3] = dateDim.group().reduceSum(function(d) {if (d.facilityId===3) return d.referralCount;return 0;});
-//    clinicReferralTotals[4] = dateDim.group().reduceSum(function(d) {if (d.facilityId===4) return d.referralCount;return 0;});
+    var clinicReferralTotals = [];
+    clinicReferralTotals[0] = clinicDateDim0.group().reduceSum(function(d) {return d.referralCount;});
+    clinicReferralTotals[1] = clinicDateDim1.group().reduceSum(function(d) {return d.referralCount;});
+    clinicReferralTotals[2] = clinicDateDim2.group().reduceSum(function(d) {return d.referralCount;});
+    clinicReferralTotals[3] = clinicDateDim3.group().reduceSum(function(d) {return d.referralCount;});
+    clinicReferralTotals[4] = clinicDateDim4.group().reduceSum(function(d) {return d.referralCount;});
 
     var referralsLineChart = dc.compositeChart("#chart-line-referrals-totals");
     referralsLineChart
@@ -265,7 +304,6 @@ function render(response) {
             .tickFormat(d3.time.format('%Y')))
         .compose([
             dc.lineChart(referralsLineChart).group(clinicReferralTotals[0], "Facility 0").colors('orange'),
-//            dc.lineChart(referralsLineChart).group(clinicReferralTotals[0], "Facility 0").colors('orange').filter(function(d) {if (d.facilityId===0) return d.referralCount;return 0;}),
             dc.lineChart(referralsLineChart).group(clinicReferralTotals[1], "Facility 1").colors('red'),
             dc.lineChart(referralsLineChart).group(clinicReferralTotals[2], "Facility 2").colors('black'),
             dc.lineChart(referralsLineChart).group(clinicReferralTotals[3], "Facility 3").colors('red'),
@@ -274,6 +312,12 @@ function render(response) {
         .renderHorizontalGridLines(true)
 //            .ticks(d3.time.months, 1)
 //            .tickFormat(d3.time.format('%b %Y')));
+
+    clinicIdDim0.filter(0);
+    clinicIdDim1.filter(1);
+    clinicIdDim2.filter(2);
+    clinicIdDim3.filter(3);
+    clinicIdDim4.filter(4);
 
     var datatable = dc.dataTable("#sources-data-table");
     datatable
