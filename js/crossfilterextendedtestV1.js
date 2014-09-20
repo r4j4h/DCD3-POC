@@ -1,21 +1,6 @@
 var referralData;
 var dimensionData;
 
-//        var referralData = [
-//            {date: "2013-04-01", typeId: 1, sourceId: 11, facilityId: 111, referralCount: 10, active_patients: 7, discharged_patients: 2, not_yet_seen: 1, shrinkage: 10.00},
-//            {date: "2013-04-01", typeId: 1, sourceId: 22, facilityId: 111, referralCount: 20, active_patients: 14, discharged_patients: 4, not_yet_seen: 2, shrinkage: 20.00},
-//            {date: "2013-04-01", typeId: 1, sourceId: 33, facilityId: 111, referralCount: 30, active_patients: 21, discharged_patients: 6, not_yet_seen: 3, shrinkage: 30.00},
-//            {date: "2013-04-01", typeId: 2, sourceId: 111, facilityId: 111, referralCount: 15, active_patients: 2, discharged_patients: 7, not_yet_seen: 6, shrinkage: 15.00},
-//            {date: "2013-04-01", typeId: 2, sourceId: 222, facilityId: 111, referralCount: 25, active_patients: 4, discharged_patients: 14, not_yet_seen: 7, shrinkage: 25.00},
-//            {date: "2013-04-01", typeId: 2, sourceId: 333, facilityId: 111, referralCount: 35, active_patients: 6, discharged_patients: 21, not_yet_seen: 8, shrinkage: 35.00},
-//            {date: "2013-05-01", typeId: 1, sourceId: 1111, facilityId: 222, referralCount: 11, active_patients: 8, discharged_patients: 2, not_yet_seen: 1, shrinkage: 10.00},
-//            {date: "2013-05-01", typeId: 1, sourceId: 22, facilityId: 111, referralCount: 20, active_patients: 14, discharged_patients: 4, not_yet_seen: 2, shrinkage: 20.00},
-//            {date: "2013-05-01", typeId: 1, sourceId: 33, facilityId: 111, referralCount: 30, active_patients: 21, discharged_patients: 6, not_yet_seen: 3, shrinkage: 30.00},
-//            {date: "2013-05-01", typeId: 2, sourceId: 11111, facilityId: 222, referralCount: 16, active_patients: 3, discharged_patients: 7, not_yet_seen: 6, shrinkage: 16.00},
-//            {date: "2013-05-01", typeId: 2, sourceId: 22222, facilityId: 222, referralCount: 26, active_patients: 5, discharged_patients: 14, not_yet_seen: 7, shrinkage: 26.00},
-//            {date: "2013-05-01", typeId: 2, sourceId: 33333, facilityId: 222, referralCount: 36, active_patients: 7, discharged_patients: 21, not_yet_seen: 8, shrinkage: 36.00}
-//        ];
-
 function print_filter(filter) {
     var f = eval(filter);
     if (typeof(f.length) != "undefined") {
@@ -48,11 +33,11 @@ function loadJSON(url, callback) {
     xobj.send(null);
 }
 
-function initDimensions(response) {
+function processDimensions(response) {
     // Parse JSON string into object
     dimensionData = JSON.parse(response);
 //    console.log(dimensionData);
-    loadJSON('data/referral-query-results.json', render);
+    loadJSON('data/referral-query-results-extended.json', render);
 }
 
 function dataTranslation(dimensionData, referralData) {
@@ -60,18 +45,17 @@ function dataTranslation(dimensionData, referralData) {
 
     for (var i=0; i<referralData.length; i++) {
         var theDate = new Date(referralData[i].date);
-console.log(theDate);
+
         var dd = theDate.getDay();
         var mm = theDate.getMonth() + 1;
         var yy = theDate.getFullYear();
         referralData[i].date = yy + '-' + mm + '-' + dd;
-console.log(referralData[i].date);
 
         console.log(referralData[i].facilityId);
         for (var j=0; j<dimensionData.data["facilities"].length; j++) {
             if (dimensionData.data["facilities"][j].id == referralData[i].facilityId) {
                 referralData[i].facilityName = dimensionData.data["facilities"][j].name;
-                console.log(dimensionData.data["facilities"][j].name);
+//                console.log(dimensionData.data["facilities"][j].name);
                 break;
             }
         }
@@ -79,7 +63,7 @@ console.log(referralData[i].date);
         for (var j=0; j<dimensionData.data["referralTypes"].length; j++) {
             if (dimensionData.data["referralTypes"][j].id == referralData[i].typeId) {
                 referralData[i].referralTypeName = dimensionData.data["referralTypes"][j].name;
-                console.log(dimensionData.data["referralTypes"][j].name);
+//                console.log(dimensionData.data["referralTypes"][j].name);
                 break;
             }
         }
@@ -87,7 +71,7 @@ console.log(referralData[i].date);
         for (var j=0; j<dimensionData.data["referralSources"].length; j++) {
             if (dimensionData.data["referralSources"][j].id == referralData[i].sourceId) {
                 referralData[i].referralSourceName = dimensionData.data["referralSources"][j].name;
-                console.log(dimensionData.data["referralSources"][j].name);
+//                console.log(dimensionData.data["referralSources"][j].name);
                 break;
             }
         }
@@ -95,6 +79,12 @@ console.log(referralData[i].date);
 }
 
 function render(response) {
+    $('#chart-pie-clinic').on('click', function(){
+        console.log("HIIIII!!!!!");
+        clinicDim.group().reduceSum(function(d) {return console.log('referralCount');});
+//        statusDim.group().reduceSum(function(d) {return d.hits;});
+    });
+
     // Parse JSON string into object
     referralData = JSON.parse(response);
 //    console.log(referralData);
@@ -111,7 +101,7 @@ function render(response) {
         d.date = d3.time.format("%Y-%m-%d").parse(d.date);
     });
 
-    print_filter("referralData");
+//    print_filter("referralData");
 
     var dateDim = ndx.dimension(function (d) {
         return d.date;
@@ -120,15 +110,6 @@ function render(response) {
         return d.facilityName
     });
     var clinicTotal = clinicDim.group().reduceSum(dc.pluck('referralCount'));
-    var sourceActivePatients = dateDim.group().reduceSum(function (d) {
-        return d.active_patients;
-    });
-    var sourceDischargedPatients = dateDim.group().reduceSum(function (d) {
-        return d.discharged_patients;
-    });
-    var sourceNotYetSeen = dateDim.group().reduceSum(function (d) {
-        return d.not_yet_seen;
-    });
 
     var typeDim = ndx.dimension(function (d) {
         return d.referralTypeName
@@ -140,10 +121,22 @@ function render(response) {
     });
     var sourceTotal = sourceDim.group().reduceSum(dc.pluck('referralCount'));
 
+    var sourceActivePatients = dateDim.group().reduceSum(function (d) {
+        return d.active_patients;
+    });
+    var sourceDischargedPatients = dateDim.group().reduceSum(function (d) {
+        return d.discharged_patients;
+    });
+    var sourceNotYetSeen = dateDim.group().reduceSum(function (d) {
+        return d.not_yet_seen;
+    });
+
     console.log(dateDim.bottom(1)[0].date);
     console.log(dateDim.top(1)[0].date);
-    var minDate = d3.time.month.offset(dateDim.bottom(1)[0].date, -1);
-    var maxDate = d3.time.month.offset(dateDim.top(1)[0].date, 1);
+    var minDate = new Date(2007, 0, 1, 0, 0, 0, 0);
+    var maxDate = new Date(2015, 8, 30, 0, 0, 0, 0);
+//    var minDate = d3.time.month.offset(dateDim.bottom(1)[0].date, -1);
+//    var maxDate = d3.time.month.offset(dateDim.top(1)[0].date, 1);
     console.log(minDate);
     console.log(maxDate);
 
@@ -166,7 +159,9 @@ function render(response) {
         .width(150).height(150)
         .dimension(sourceDim)
         .group(sourceTotal)
-        .innerRadius(0);
+        .innerRadius(0)
+        .data(function(d) {return d.order(function (d){return d.referralCount;}).top(10)})
+        .ordering(function(d){return d.sourceId;});
 
     var referralsLineChart = dc.lineChart("#chart-line-referrals-totals");
     referralsLineChart
@@ -181,8 +176,10 @@ function render(response) {
         .legend(dc.legend().x(50).y(10).itemHeight(13).gap(5))
         .yAxisLabel("Referral Counts")
         .xAxis(d3.svg.axis()
-            .ticks(d3.time.months, 1)
-            .tickFormat(d3.time.format('%b %Y')));
+            .ticks(d3.time.years, 1)
+            .tickFormat(d3.time.format('%Y')));
+//            .ticks(d3.time.months, 1)
+//            .tickFormat(d3.time.format('%b %Y')));
 
     var datatable = dc.dataTable("#sources-data-table");
     datatable
@@ -225,5 +222,5 @@ function render(response) {
 }
 
 function displayCharts() {
-    loadJSON('data/referral-dimension-data.json', initDimensions);
+    loadJSON('data/referral-dimension-data-extended.json', processDimensions);
 }
