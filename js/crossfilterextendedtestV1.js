@@ -134,6 +134,50 @@ function render(response) {
         return d.not_yet_seen;
     });
 
+
+    // Prepare dimension groups for composite chart
+    var clinicIdsByReferralCount = clinicIdDim.group().reduceSum(function (d) {
+        return d.referralCount;
+    });
+    var clinicNamesByReferralCount = clinicNameDim.group().reduceSum(function (d) {
+        return d.referralCount;
+    });
+    var top3ClinicIdsByReferralCount = clinicIdsByReferralCount.top(3);
+    var top3ClinicNamesByReferralCount = clinicNamesByReferralCount.top(3);
+
+    var firstPlaceReferringClinicDateDim = ndx.dimension(function (d) {
+        if ( d.facilityId === top3ClinicIdsByReferralCount[0].key ) {
+            return d.date; 
+        }
+    });
+    var secondPlaceReferringClinicDateDim = ndx.dimension(function (d) {
+        if ( d.facilityId === top3ClinicIdsByReferralCount[1].key ) {
+            return d.date; 
+        }
+    });
+    var thirdPlaceReferringClinicDateDim = ndx.dimension(function (d) {
+        if ( d.facilityId === top3ClinicIdsByReferralCount[2].key ) {
+            return d.date; 
+        }
+    });
+
+
+    var firstPlaceReferringClinicReferralsByTimesName = top3ClinicNamesByReferralCount[0].key;
+    var secondPlaceReferringClinicReferralsByTimesName = top3ClinicNamesByReferralCount[1].key;
+    var thirdPlaceReferringClinicReferralsByTimesName = top3ClinicNamesByReferralCount[2].key;
+    var firstPlaceReferringClinicReferralsByTime = firstPlaceReferringClinicDateDim.group().reduceSum(function (d) {
+        return d.referralCount;
+    });
+    var secondPlaceReferringClinicReferralsByTime = secondPlaceReferringClinicDateDim.group().reduceSum(function (d) {
+        return d.referralCount;
+    });
+    var thirdPlaceReferringClinicReferralsByTime = thirdPlaceReferringClinicDateDim.group().reduceSum(function (d) {
+        return d.referralCount;
+    });
+    // debugger;
+
+
+
     console.log("bottom 1\'s .date: " + dateDim.bottom(1)[0].date);
     console.log("top 1\'s .date: " + dateDim.top(1)[0].date);
     var minDate = new Date(2007, 0, 1, 0, 0, 0, 0);
@@ -183,6 +227,39 @@ function render(response) {
             .tickFormat(d3.time.format('%Y')));
 //            .ticks(d3.time.months, 1)
 //            .tickFormat(d3.time.format('%b %Y')));
+
+
+    var compositeTestChart = dc.compositeChart("#composite-test-chart");
+        compositeTestChart
+            .height(250)
+            .x(d3.time.scale().domain([minDate, maxDate]))
+            .brushOn(false)
+            .legend(dc.legend().x(60).y(10).itemHeight(13).gap(5))
+            .yAxisLabel("Top 2 Clinic's Referrals over Time")
+            .compose([
+                dc.lineChart(compositeTestChart)
+                    .dimension(dateDim)
+                    .colors('red')
+                    .group(firstPlaceReferringClinicReferralsByTime, firstPlaceReferringClinicReferralsByTimesName)
+                    .renderArea(true)
+                ,
+                dc.lineChart(compositeTestChart)
+                    .dimension(dateDim)
+                    .colors('green')
+                    .group(secondPlaceReferringClinicReferralsByTime, secondPlaceReferringClinicReferralsByTimesName)
+                    .renderArea(true)
+                ,
+                dc.lineChart(compositeTestChart)
+                    .dimension(dateDim)
+                    .colors('blue')
+                    .group(thirdPlaceReferringClinicReferralsByTime, thirdPlaceReferringClinicReferralsByTimesName)
+                    .renderArea(true)
+            ])
+            .xAxis(d3.svg.axis()
+                .ticks(d3.time.years, 1)
+                .tickFormat(d3.time.format('%Y')))
+    ; 
+
 
     var datatable = dc.dataTable("#sources-data-table");
     datatable
