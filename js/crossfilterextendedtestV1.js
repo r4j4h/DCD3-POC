@@ -1,5 +1,10 @@
 var referralData;
 var dimensionData;
+var referralsLineChart;
+var compositeTestChart;
+var sourceActivePatients;
+var sourceDischargedPatients;
+var sourceNotYetSeen;
 
 function print_filter(filter) {
     var f = eval(filter);
@@ -51,7 +56,7 @@ function dataTranslation(dimensionData, referralData) {
         var yy = theDate.getFullYear();
         referralData[i].date = yy + '-' + mm + '-' + dd;
 
-        console.log("dataTranslation referralData["+i+"].facilityId: " + referralData[i].facilityId);
+//        console.log("dataTranslation referralData["+i+"].facilityId: " + referralData[i].facilityId);
         for (var j=0; j<dimensionData.data["facilities"].length; j++) {
             if (dimensionData.data["facilities"][j].id == referralData[i].facilityId) {
                 referralData[i].facilityName = dimensionData.data["facilities"][j].name;
@@ -79,11 +84,11 @@ function dataTranslation(dimensionData, referralData) {
 }
 
 function render(response) {
-    $('#chart-pie-clinic').on('click', function(){
-        console.log("HIIIII!!!!!");
-        clinicNameDim.group().reduceSum(function(d) {return console.log('referralCount');});
-//        statusDim.group().reduceSum(function(d) {return d.hits;});
-    });
+//    $('#chart-pie-clinic').on('click', function(){
+//        console.log("HIIIII!!!!!");
+//        clinicNameDim.group().reduceSum(function(d) {return console.log('referralCount');});
+////        statusDim.group().reduceSum(function(d) {return d.hits;});
+//    });
 
     // Parse JSON string into object
     referralData = JSON.parse(response);
@@ -104,7 +109,7 @@ function render(response) {
 //    print_filter("referralData");
 
     var dateDim = ndx.dimension(function (d) {
-        return d.date;
+        return d.date.getTime();
     });
     var clinicIdDim = ndx.dimension(function (d) {
         return d.facilityId
@@ -124,13 +129,13 @@ function render(response) {
     });
     var sourceTotal = sourceDim.group().reduceSum(dc.pluck('referralCount'));
 
-    var sourceActivePatients = dateDim.group().reduceSum(function (d) {
+    sourceActivePatients = dateDim.group().reduceSum(function (d) {
         return d.active_patients;
     });
-    var sourceDischargedPatients = dateDim.group().reduceSum(function (d) {
+    sourceDischargedPatients = dateDim.group().reduceSum(function (d) {
         return d.discharged_patients;
     });
-    var sourceNotYetSeen = dateDim.group().reduceSum(function (d) {
+    sourceNotYetSeen = dateDim.group().reduceSum(function (d) {
         return d.not_yet_seen;
     });
 
@@ -176,8 +181,6 @@ function render(response) {
     });
     // debugger;
 
-
-
     console.log("bottom 1\'s .date: " + dateDim.bottom(1)[0].date);
     console.log("top 1\'s .date: " + dateDim.top(1)[0].date);
     var minDate = new Date(2007, 0, 1, 0, 0, 0, 0);
@@ -210,13 +213,69 @@ function render(response) {
         .data(function(d) {return d.order(function (d){return d.referralCount;}).top(10)})
         .ordering(function(d){return d.sourceId;});
 
-    var referralsLineChart = dc.lineChart("#chart-line-referrals-totals");
-    referralsLineChart
+//    var dateRangeGroup = dateDim.group().reduceSum(function (d) {
+//        return d.referralCount / 500;
+//    });
+
+//    var firstLineChart = dc.lineChart("#composite-test-chart");
+//    firstLineChart
+//        .height(250)
+//        .x(d3.time.scale().domain([minDate, maxDate]))
+//        .brushOn(true)
+//        .legend(dc.legend().x(60).y(10).itemHeight(13).gap(5))
+//        .yAxisLabel("Top 2 Clinic's Referrals over Time")
+//        .dimension(dateDim)
+//        .group(firstPlaceReferringClinicReferralsByTime, firstPlaceReferringClinicReferralsByTimesName)
+//        .renderArea(true)
+//        .xAxis(d3.svg.axis()
+//            .ticks(d3.time.years, 1)
+//            .tickFormat(d3.time.format('%Y')))
+//    ;
+
+    var firstLineChart = dc.lineChart(compositeTestChart);
+    firstLineChart
+        .dimension(dateDim)
+        .colors('red')
+        .group(firstPlaceReferringClinicReferralsByTime, firstPlaceReferringClinicReferralsByTimesName)
+        .renderArea(true)
+        .x(d3.time.scale().domain([minDate, maxDate]));
+
+//    compositeTestChart = dc.compositeChart("#composite-test-chart");
+//    compositeTestChart
+//        .height(250)
+//        .x(d3.time.scale().domain([minDate, maxDate]))
+//        .brushOn(true)
+//        .elasticX(true)
+//        .elasticY(true)
+//        .legend(dc.legend().x(60).y(10).itemHeight(13).gap(5))
+//        .yAxisLabel("Top 3 Clinic's Referrals over Time")
+//        .compose([
+//            firstLineChart,
+//            dc.lineChart(compositeTestChart)
+//                .dimension(dateDim)
+//                .colors('green')
+//                .group(secondPlaceReferringClinicReferralsByTime, secondPlaceReferringClinicReferralsByTimesName)
+//                .renderArea(true)
+//            ,
+//            dc.lineChart(compositeTestChart)
+//                .dimension(dateDim)
+//                .colors('blue')
+//                .group(thirdPlaceReferringClinicReferralsByTime, thirdPlaceReferringClinicReferralsByTimesName)
+//                .renderArea(true)
+//        ])
+//        .xAxis(d3.svg.axis()
+//            .ticks(d3.time.years, 1)
+//            .tickFormat(d3.time.format('%Y')))
+//    ;
+
+    var referralsLineChart2 = dc.lineChart("#composite-test-chart");
+    referralsLineChart2
         .height(200)
         .dimension(dateDim)
         .group(sourceActivePatients, "Active")
         .stack(sourceDischargedPatients, "Discharged")
         .stack(sourceNotYetSeen, "Not Yet Seen")
+        .mouseZoomable(true)
         .renderArea(true)
         .x(d3.time.scale().domain([minDate, maxDate]))
         .brushOn(true)
@@ -228,38 +287,25 @@ function render(response) {
 //            .ticks(d3.time.months, 1)
 //            .tickFormat(d3.time.format('%b %Y')));
 
-
-    var compositeTestChart = dc.compositeChart("#composite-test-chart");
-        compositeTestChart
-            .height(250)
-            .x(d3.time.scale().domain([minDate, maxDate]))
-            .brushOn(false)
-            .legend(dc.legend().x(60).y(10).itemHeight(13).gap(5))
-            .yAxisLabel("Top 2 Clinic's Referrals over Time")
-            .compose([
-                dc.lineChart(compositeTestChart)
-                    .dimension(dateDim)
-                    .colors('red')
-                    .group(firstPlaceReferringClinicReferralsByTime, firstPlaceReferringClinicReferralsByTimesName)
-                    .renderArea(true)
-                ,
-                dc.lineChart(compositeTestChart)
-                    .dimension(dateDim)
-                    .colors('green')
-                    .group(secondPlaceReferringClinicReferralsByTime, secondPlaceReferringClinicReferralsByTimesName)
-                    .renderArea(true)
-                ,
-                dc.lineChart(compositeTestChart)
-                    .dimension(dateDim)
-                    .colors('blue')
-                    .group(thirdPlaceReferringClinicReferralsByTime, thirdPlaceReferringClinicReferralsByTimesName)
-                    .renderArea(true)
-            ])
-            .xAxis(d3.svg.axis()
-                .ticks(d3.time.years, 1)
-                .tickFormat(d3.time.format('%Y')))
-    ; 
-
+    referralsLineChart = dc.lineChart("#chart-line-referrals-totals");
+    referralsLineChart
+        .height(200)
+        .dimension(dateDim)
+        .group(sourceActivePatients, "Active")
+        .stack(sourceDischargedPatients, "Discharged")
+        .stack(sourceNotYetSeen, "Not Yet Seen")
+        .rangeChart(referralsLineChart2)
+        .mouseZoomable(true)
+        .renderArea(true)
+        .x(d3.time.scale().domain([minDate, maxDate]))
+        .brushOn(false)
+        .legend(dc.legend().x(50).y(10).itemHeight(13).gap(5))
+        .yAxisLabel("Referral Counts")
+        .xAxis(d3.svg.axis()
+//            .ticks(d3.time.years, 1)
+//            .tickFormat(d3.time.format('%Y')));
+            .ticks(d3.time.months, 1)
+            .tickFormat(d3.time.format('%b %Y')));
 
     var datatable = dc.dataTable("#sources-data-table");
     datatable
