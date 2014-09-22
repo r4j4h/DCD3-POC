@@ -81,7 +81,7 @@ function dataTranslation(dimensionData, referralData) {
 function render(response) {
     $('#chart-pie-clinic').on('click', function(){
         console.log("HIIIII!!!!!");
-        clinicDim.group().reduceSum(function(d) {return console.log('referralCount');});
+        clinicNameDim.group().reduceSum(function(d) {return console.log('referralCount');});
 //        statusDim.group().reduceSum(function(d) {return d.hits;});
     });
 
@@ -106,10 +106,13 @@ function render(response) {
     var dateDim = ndx.dimension(function (d) {
         return d.date;
     });
-    var clinicDim = ndx.dimension(function (d) {
+    var clinicIdDim = ndx.dimension(function (d) {
+        return d.facilityId
+    });
+    var clinicNameDim = ndx.dimension(function (d) {
         return d.facilityName
     });
-    var clinicTotal = clinicDim.group().reduceSum(dc.pluck('referralCount'));
+    var clinicTotal = clinicNameDim.group().reduceSum(dc.pluck('referralCount'));
 
     var typeDim = ndx.dimension(function (d) {
         return d.referralTypeName
@@ -143,7 +146,7 @@ function render(response) {
     var clinicPieChart = dc.pieChart("#chart-pie-clinic");
     clinicPieChart
         .width(150).height(150)
-        .dimension(clinicDim)
+        .dimension(clinicNameDim)
         .group(clinicTotal)
         .innerRadius(0);
 
