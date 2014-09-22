@@ -41,7 +41,7 @@ function processDimensions(response) {
 }
 
 function dataTranslation(dimensionData, referralData) {
-    console.log(referralData.length);
+    console.log("dataTranslation referralData.length: " + referralData.length);
 
     for (var i=0; i<referralData.length; i++) {
         var theDate = new Date(referralData[i].date);
@@ -51,7 +51,7 @@ function dataTranslation(dimensionData, referralData) {
         var yy = theDate.getFullYear();
         referralData[i].date = yy + '-' + mm + '-' + dd;
 
-        console.log(referralData[i].facilityId);
+        console.log("dataTranslation referralData["+i+"].facilityId: " + referralData[i].facilityId);
         for (var j=0; j<dimensionData.data["facilities"].length; j++) {
             if (dimensionData.data["facilities"][j].id == referralData[i].facilityId) {
                 referralData[i].facilityName = dimensionData.data["facilities"][j].name;
@@ -131,14 +131,14 @@ function render(response) {
         return d.not_yet_seen;
     });
 
-    console.log(dateDim.bottom(1)[0].date);
-    console.log(dateDim.top(1)[0].date);
+    console.log("bottom 1\'s .date: " + dateDim.bottom(1)[0].date);
+    console.log("top 1\'s .date: " + dateDim.top(1)[0].date);
     var minDate = new Date(2007, 0, 1, 0, 0, 0, 0);
     var maxDate = new Date(2015, 8, 30, 0, 0, 0, 0);
 //    var minDate = d3.time.month.offset(dateDim.bottom(1)[0].date, -1);
 //    var maxDate = d3.time.month.offset(dateDim.top(1)[0].date, 1);
-    console.log(minDate);
-    console.log(maxDate);
+    console.log("minDate: " + minDate);
+    console.log("maxDate: " + maxDate);
 
     var clinicPieChart = dc.pieChart("#chart-pie-clinic");
     clinicPieChart
