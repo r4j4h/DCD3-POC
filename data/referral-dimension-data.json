@@ -1,0 +1,116 @@
+{
+    "status": "success",
+    "data":
+        {
+            "facilities": [
+                {
+                    "id": 111,
+                    "name": "HealGood"
+                },
+                {
+                    "id": 222,
+                    "name": "ICreakPleaseHelp"
+                }
+            ],
+            "referralTypes": [
+                {
+                    "id": 1,
+                    "name": "Physicians"
+                },
+                {
+                    "id": 2,
+                    "name": "Ads"
+                }
+            ],
+            "referralSources": [
+                {
+                    "id": 11,
+                    "name": "Dr. Phil"
+                },
+                {
+                    "id": 22,
+                    "name": "Dr. Feelgood"
+                },
+                {
+                    "id": 33,
+                    "name": "Dr. Bart"
+                },
+                {
+                    "id": 7,
+                    "name": "Dr. Jetson"
+                },
+                {
+                    "id": 8,
+                    "name": "Dr. Flintstone"
+                },
+                {
+                    "id": 9,
+                    "name": "Dr. Doolittle"
+                },
+                {
+                    "id": 777,
+                    "name": "Dr. Who"
+                },
+                {
+                    "id": 888,
+                    "name": "Dr. Homer"
+                },
+                {
+                    "id": 999,
+                    "name": "Dr. Rogers"
+                },
+                {
+                    "id": 111,
+                    "name": "Google"
+                },
+                {
+                    "id": 222,
+                    "name": "Yahoo"
+                },
+                {
+                    "id": 333,
+                    "name": "Ad A"
+                },
+                {
+                    "id": 77,
+                    "name": "Ad B"
+                },
+                {
+                    "id": 88,
+                    "name": "Ad C"
+                },
+                {
+                    "id": 99,
+                    "name": "Ad D"
+                },
+                {
+                    "id": 11111,
+                    "name": "Ad E"
+                },
+                {
+                    "id": 22222,
+                    "name": "Ad F"
+                },
+                {
+                    "id": 33333,
+                    "name": "Ad G"
+                },
+                {
+                    "id": 7777,
+                    "name": "Ad H"
+                },
+                {
+                    "id": 8888,
+                    "name": "Ad I"
+                },
+                {
+                    "id": 9999,
+                    "name": "Ad J"
+                },
+                {
+                    "id": 1111,
+                    "name": "Ad K"
+                }
+            ]
+        }
+}
