@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<script type="text/javascript" src="js/vendor/jquery-2.0.0.min.js" charset="utf-8"></script>-->
+    <script type="text/javascript" src="js/vendor/crossfilter.min.js" charset="utf-8"></script>
+
+    <script type="text/javascript" src="js/vendor/d3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/vendor/dc.min.js" charset="utf-8"></script>
+    <!--<script type="text/javascript" src="https://test.webpt.localhost/www/php-druid-query/examples/ChartingPOC/crossfilter.min.js"></script>-->
+    <!--<script type="text/javascript" src="https://rawgithub.com/NickQiZhu/dc.js/master/web/js/crossfilter.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="css/vendor/dc.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="css/crossfiltertest.css" media="screen"/>
+    <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+
+    <script type="text/javascript" src="js/poc2.js" charset="utf-8"></script>
+
+    <title>TESTING!!!</title>
+</head>
+<body onload="displayCharts()">
+
+<div id="charts">
+    <div class="reset-zoom">
+        <a href="javascript:dc.filterAll(); dc.redrawAll();">Reset Time to Zoom</a>
+    </div>
+
+    <div class="chart-box">
+        <div id="chart-pie-clinic"></div>
+        <label>Referral Counts by Clinic</label>
+        <label>Total:</label>
+    </div>
+    <div class="chart-box">
+        <div id="chart-pie-type"></div>
+        <label>Referral Counts by Referral Type</label>
+        <label>Total:</label>
+    </div>
+    <div class="chart-box">
+        <div id="chart-pie-source">
+        </div>
+        <label>Referral Counts by Referral Source</label>
+        <label>Total:</label>
+    </div>
+
+    <div class="row">
+        <div id="composite-test-chart">
+            <strong>Total Referral Counts By Clinic Chart</strong>
+            <span class="reset" style="display: none;">range: <span class="filter"></span></span>
+            <a class="reset" href="javascript:compositeTestChart.filterAll();referralsLineChart.filterAll();dc.redrawAll();"
+               style="display: none;">reset</a>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="chart-line-referrals-totals">
+            <strong>Total Referral Counts Chart</strong>
+            <span class="reset" style="display: none;">range: <span class="filter"></span></span>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+
+<div id="sources-data-table-container">
+    <table id="sources-data-table">
+        <thead>
+            <tr class="header">
+                <th>Source</th>
+                <th>Type</th>
+                <th>Facility</th>
+                <th>Active</th>
+                <th>Discharged</th>
+                <th>Not Yet Seen</th>
+                <th>Total</th>
+                <th>Shrinkage</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

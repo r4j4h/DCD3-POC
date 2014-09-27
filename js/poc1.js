@@ -14,9 +14,11 @@ var gainOrLossChart = dc.pieChart("#gain-loss-chart");
 var fluctuationChart = dc.barChart("#fluctuation-chart");
 var quarterChart = dc.pieChart("#quarter-chart");
 var dayOfWeekChart = dc.rowChart("#day-of-week-chart");
-var moveChart = dc.lineChart("#monthly-move-chart");
+//var moveChart = dc.lineChart("#monthly-move-chart");
 var volumeChart = dc.barChart("#monthly-volume-chart");
 var yearlyBubbleChart = dc.bubbleChart("#yearly-bubble-chart");
+
+var compositeTestChart = dc.compositeChart("#composite-test-chart");
 
 // ### Anchor Div for Charts
 /*
@@ -58,46 +60,15 @@ d3.csv("data/stocks-example.csv", function (data) {
         d.month = d3.time.month(d.dd); // pre-calculate month for better performance
         d.close = +d.close; // coerce to number
         d.open = +d.open;
+        d.facilityId = Math.floor(Math.random() * 3);
+        d.facilityName = "Clinic " + d.facilityId;
+        d.referralCount = d.close;
     });
 
     //### Create Crossfilter Dimensions and Groups
     //See the [crossfilter API](https://github.com/square/crossfilter/wiki/API-Reference) for reference.
     var ndx = crossfilter(data);
     var all = ndx.groupAll();
-
-    // dimension by year
-    var yearlyDimension = ndx.dimension(function (d) {
-        return d3.time.year(d.dd).getFullYear();
-    });
-    // maintain running tallies by year as filters are applied or removed
-    var yearlyPerformanceGroup = yearlyDimension.group().reduce(
-        /* callback for when data is added to the current filter results */
-        function (p, v) {
-            ++p.count;
-            p.absGain += v.close - v.open;
-            p.fluctuation += Math.abs(v.close - v.open);
-            p.sumIndex += (v.open + v.close) / 2;
-            p.avgIndex = p.sumIndex / p.count;
-            p.percentageGain = (p.absGain / p.avgIndex) * 100;
-            p.fluctuationPercentage = (p.fluctuation / p.avgIndex) * 100;
-            return p;
-        },
-        /* callback for when data is removed from the current filter results */
-        function (p, v) {
-            --p.count;
-            p.absGain -= v.close - v.open;
-            p.fluctuation -= Math.abs(v.close - v.open);
-            p.sumIndex -= (v.open + v.close) / 2;
-            p.avgIndex = p.sumIndex / p.count;
-            p.percentageGain = (p.absGain / p.avgIndex) * 100;
-            p.fluctuationPercentage = (p.fluctuation / p.avgIndex) * 100;
-            return p;
-        },
-        /* initialize p */
-        function () {
-            return {count: 0, absGain: 0, fluctuation: 0, fluctuationPercentage: 0, sumIndex: 0, avgIndex: 0, percentageGain: 0};
-        }
-    );
 
     // dimension by full date
     var dateDimension = ndx.dimension(function (d) {
@@ -131,6 +102,131 @@ d3.csv("data/stocks-example.csv", function (data) {
         },
         function () {
             return {days: 0, total: 0, avg: 0};
+        }
+    );
+
+
+
+    var clinicIdDim = ndx.dimension(function (d) {
+        return d.facilityId
+    });
+    var clinicNameDim = ndx.dimension(function (d) {
+        return d.facilityName
+    });
+    var clinicTotal = clinicNameDim.group().reduceSum(dc.pluck('referralCount'));
+
+    // Prepare dimension groups for composite chart
+    var clinicIdsByReferralCount = clinicIdDim.group().reduceSum(function (d) {
+        return d.referralCount;
+    });
+    var clinicNamesByReferralCount = clinicNameDim.group().reduceSum(function (d) {
+        return d.referralCount;
+    });
+    var top3ClinicIdsByReferralCount = clinicIdsByReferralCount.top(3);
+    var top3ClinicNamesByReferralCount = clinicNamesByReferralCount.top(3);
+
+    var firstPlaceReferringClinicReferralsByTimesName = top3ClinicNamesByReferralCount[0].key;
+    var secondPlaceReferringClinicReferralsByTimesName = top3ClinicNamesByReferralCount[1].key;
+    var thirdPlaceReferringClinicReferralsByTimesName = top3ClinicNamesByReferralCount[2].key;
+
+    var firstPlaceReferringClinicReferralsByTime = moveMonths.group().reduce(
+        function (p, v) {
+            if (v.facilityId === 0) {
+                ++p.days;
+                p.referralCount += v.referralCount;
+            }
+
+            return p;
+        },
+        function (p, v) {
+            if (v.facilityId === 0) {
+                --p.days;
+                p.referralCount -= v.referralCount;
+            }
+
+            return p;
+        },
+        function () {
+            return {days: 0, referralCount: 0};
+        }
+    );
+
+    var secondPlaceReferringClinicReferralsByTime = moveMonths.group().reduce(
+        function (p, v) {
+            if (v.facilityId === 1) {
+                ++p.days;
+                p.referralCount += v.referralCount;
+            }
+
+            return p;
+        },
+        function (p, v) {
+            if (v.facilityId === 1) {
+                --p.days;
+                p.referralCount -= v.referralCount;
+            }
+
+            return p;
+        },
+        function () {
+            return {days: 0, referralCount: 0};
+        }
+    );
+
+    var thirdPlaceReferringClinicReferralsByTime = moveMonths.group().reduce(
+        function (p, v) {
+            if (v.facilityId === 2) {
+                ++p.days;
+                p.referralCount += v.referralCount;
+            }
+
+            return p;
+        },
+        function (p, v) {
+            if (v.facilityId === 2) {
+                --p.days;
+                p.referralCount -= v.referralCount;
+            }
+
+            return p;
+        },
+        function () {
+            return {days: 0, referralCount: 0};
+        }
+    );
+
+
+    // dimension by year
+    var yearlyDimension = ndx.dimension(function (d) {
+        return d3.time.year(d.dd).getFullYear();
+    });
+    // maintain running tallies by year as filters are applied or removed
+    var yearlyPerformanceGroup = yearlyDimension.group().reduce(
+        /* callback for when data is added to the current filter results */
+        function (p, v) {
+            ++p.count;
+            p.absGain += v.close - v.open;
+            p.fluctuation += Math.abs(v.close - v.open);
+            p.sumIndex += (v.open + v.close) / 2;
+            p.avgIndex = p.sumIndex / p.count;
+            p.percentageGain = (p.absGain / p.avgIndex) * 100;
+            p.fluctuationPercentage = (p.fluctuation / p.avgIndex) * 100;
+            return p;
+        },
+        /* callback for when data is removed from the current filter results */
+        function (p, v) {
+            --p.count;
+            p.absGain -= v.close - v.open;
+            p.fluctuation -= Math.abs(v.close - v.open);
+            p.sumIndex -= (v.open + v.close) / 2;
+            p.avgIndex = p.sumIndex / p.count;
+            p.percentageGain = (p.absGain / p.avgIndex) * 100;
+            p.fluctuationPercentage = (p.fluctuation / p.avgIndex) * 100;
+            return p;
+        },
+        /* initialize p */
+        function () {
+            return {count: 0, absGain: 0, fluctuation: 0, fluctuationPercentage: 0, sumIndex: 0, avgIndex: 0, percentageGain: 0};
         }
     );
 
@@ -340,10 +436,19 @@ d3.csv("data/stocks-example.csv", function (data) {
         function (v) { return v + "%"; });
     fluctuationChart.yAxis().ticks(5);
 
-    //#### Stacked Area Chart
-    //Specify an area chart, by using a line chart with `.renderArea(true)`
-    moveChart
+
+    var firstLineChart = dc.lineChart(compositeTestChart);
+    firstLineChart
+        .colors('red')
+        .group(firstPlaceReferringClinicReferralsByTime, firstPlaceReferringClinicReferralsByTimesName)
+        .valueAccessor(function (d) {
+            return d.value.referralCount;
+        })
         .renderArea(true)
+    ;
+
+    compositeTestChart
+//        .renderArea(true)
         .width(990)
         .height(200)
         .transitionDuration(1000)
@@ -359,23 +464,82 @@ d3.csv("data/stocks-example.csv", function (data) {
         .renderHorizontalGridLines(true)
         .legend(dc.legend().x(800).y(10).itemHeight(13).gap(5))
         .brushOn(false)
-        // Add the base layer of the stack with group. The second parameter specifies a series name for use in the legend
-        // The `.valueAccessor` will be used for the base layer
-        .group(indexAvgByMonthGroup, "Monthly Index Average")
-        .valueAccessor(function (d) {
-            return d.value.avg;
-        })
-        // stack additional layers with `.stack`. The first paramenter is a new group.
-        // The second parameter is the series name. The third is a value accessor.
-        .stack(monthlyMoveGroup, "Monthly Index Move", function (d) {
-            return d.value;
-        })
-        // title can be called by any stack layer.
+
+//        .group(firstPlaceReferringClinicReferralsByTime, firstPlaceReferringClinicReferralsByTimesName)
+//        .valueAccessor(function (d) {
+//            return d.value.referralCount;
+//        })
+//        // stack additional layers with `.stack`. The first paramenter is a new group.
+//        // The second parameter is the series name. The third is a value accessor.
+//        .stack(secondPlaceReferringClinicReferralsByTime, secondPlaceReferringClinicReferralsByTimesName, function (d) {
+//            return d.value.referralCount;
+//        })
+//        .stack(thirdPlaceReferringClinicReferralsByTime, thirdPlaceReferringClinicReferralsByTimesName, function (d) {
+//            return d.value.referralCount;
+//        })
+
+
+        .compose([
+            firstLineChart,
+            dc.lineChart(compositeTestChart)
+                .colors('green')
+                .group(secondPlaceReferringClinicReferralsByTime, secondPlaceReferringClinicReferralsByTimesName)
+                .valueAccessor(function (d) {
+                    return d.value.referralCount;
+                })
+                .renderArea(true)
+            ,
+            dc.lineChart(compositeTestChart)
+                .colors('blue')
+                .group(thirdPlaceReferringClinicReferralsByTime, thirdPlaceReferringClinicReferralsByTimesName)
+                .valueAccessor(function (d) {
+                    return d.value.referralCount;
+                })
+                .renderArea(true)
+        ])
         .title(function (d) {
             var value = d.value.avg ? d.value.avg : d.value;
             if (isNaN(value)) value = 0;
             return dateFormat(d.key) + "\n" + numberFormat(value);
         });
+
+
+    //#### Stacked Area Chart
+    //Specify an area chart, by using a line chart with `.renderArea(true)`
+//    moveChart
+//        .renderArea(true)
+//        .width(990)
+//        .height(200)
+//        .transitionDuration(1000)
+//        .margins({top: 30, right: 50, bottom: 25, left: 40})
+//        .dimension(moveMonths)
+//        .mouseZoomable(true)
+//        // Specify a range chart to link the brush extent of the range with the zoom focue of the current chart.
+//        .rangeChart(volumeChart)
+//        .x(d3.time.scale().domain([new Date(1985, 0, 1), new Date(2012, 11, 31)]))
+//        .round(d3.time.month.round)
+//        .xUnits(d3.time.months)
+//        .elasticY(true)
+//        .renderHorizontalGridLines(true)
+//        .legend(dc.legend().x(800).y(10).itemHeight(13).gap(5))
+//        .brushOn(false)
+//        // Add the base layer of the stack with group. The second parameter specifies a series name for use in the legend
+//        // The `.valueAccessor` will be used for the base layer
+//        .group(indexAvgByMonthGroup, "Monthly Index Average")
+//        .valueAccessor(function (d) {
+//            return d.value.avg;
+//        })
+//        // stack additional layers with `.stack`. The first paramenter is a new group.
+//        // The second parameter is the series name. The third is a value accessor.
+//        .stack(monthlyMoveGroup, "Monthly Index Move", function (d) {
+//            return d.value;
+//        })
+//        // title can be called by any stack layer.
+//        .title(function (d) {
+//            var value = d.value.avg ? d.value.avg : d.value;
+//            if (isNaN(value)) value = 0;
+//            return dateFormat(d.key) + "\n" + numberFormat(value);
+//        });
 
     volumeChart.width(990)
         .height(40)
@@ -454,6 +618,12 @@ d3.csv("data/stocks-example.csv", function (data) {
             },
             function (d) {
                 return d.volume;
+            },
+            function (d) {
+                return d.facilityName;
+            },
+            function (d) {
+                return d.referralCount;
             }
         ])
         // (optional) sort using the given field, :default = function(d){return d;}
