@@ -168,6 +168,9 @@ function render(response) {
         function (p, v) {
             if (v.facilityId === top3ClinicIdsByReferralCount[0].key) {
                 p.referralCount += v.referralCount;
+                p.date = new Date(v.date);
+//                var dt = new Date(v.date);
+//                 p.date = dt.getFullYear() + '-' + (dt.getMonth() + 1) + '-' + (dt.getDay() + 1);
             }
 
             return p;
@@ -180,7 +183,7 @@ function render(response) {
             return p;
         },
         function () {
-            return {referralCount: 0};
+            return {referralCount: 0, date: null};
         }
     );
 
@@ -188,6 +191,9 @@ function render(response) {
         function (p, v) {
             if (v.facilityId === top3ClinicIdsByReferralCount[1].key) {
                 p.referralCount += v.referralCount;
+                p.date = new Date(v.date);
+//                var dt = new Date(v.date);
+//                 p.date = dt.getFullYear() + '-' + (dt.getMonth() + 1) + '-' + (dt.getDay() + 1);
             }
 
             return p;
@@ -200,7 +206,7 @@ function render(response) {
             return p;
         },
         function () {
-            return {referralCount: 0};
+            return {referralCount: 0, date: null};
         }
     );
 
@@ -208,6 +214,9 @@ function render(response) {
         function (p, v) {
             if (v.facilityId === top3ClinicIdsByReferralCount[2].key) {
                 p.referralCount += v.referralCount;
+                p.date = new Date(v.date);
+//                var dt = new Date(v.date);
+//                 p.date = dt.getFullYear() + '-' + (dt.getMonth() + 1) + '-' + (dt.getDay() + 1);
             }
 
             return p;
@@ -220,7 +229,7 @@ function render(response) {
             return p;
         },
         function () {
-            return {referralCount: 0};
+            return {referralCount: 0, date: null};
         }
     );
     // debugger;
@@ -304,6 +313,9 @@ function render(response) {
         .renderHorizontalGridLines(true)
         .legend(dc.legend().x(60).y(10).itemHeight(13).gap(5))
         .brushOn(false)
+        .title(function (d) {
+            return d.value.referralCount + "\n" + d.value.date;
+        })
         .compose([
             firstLineChart,
             dc.lineChart(compositeTestChart)
@@ -322,13 +334,14 @@ function render(response) {
                 .valueAccessor(function (d) {
                     return d.value.referralCount;
                 })
+//                .title(function (d) {
+//                    return d.value.referralCount;
+//        //            var value = d.value.avg ? d.value.avg : d.value;
+//        //            if (isNaN(value)) value = 0;
+//        //            return dateFormat(d.key) + "\n" + numberFormat(value);
+//                })
                 .renderArea(true)
         ]);
-//        .title(function (d) {
-//            var value = d.value.avg ? d.value.avg : d.value;
-//            if (isNaN(value)) value = 0;
-//            return dateFormat(d.key) + "\n" + numberFormat(value);
-//        });
 
 //    referralsLineChart
 //        .width(990)
