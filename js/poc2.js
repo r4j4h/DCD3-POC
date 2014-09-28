@@ -50,13 +50,13 @@ function dataTranslation(dimensionData, referralData) {
     console.log("dataTranslation referralData.length: " + referralData.length);
 
     for (var i=0; i<referralData.length; i++) {
-        var theDate = new Date(referralData[i].date);
-
-        var dd = theDate.getDay() + 1;
-        var mm = theDate.getMonth() + 1;
-        var yy = theDate.getFullYear();
-        referralData[i].date = yy + '-' + mm + '-' + dd;
-        console.log(referralData[i].date);
+//        var theDate = new Date(referralData[i].date);
+//
+//        var dd = theDate.getDay() + 1;
+//        var mm = theDate.getMonth() + 1;
+//        var yy = theDate.getFullYear();
+//        referralData[i].date = yy + '-' + mm + '-' + dd;
+//        console.log(referralData[i].date);
 
 //        console.log("dataTranslation referralData["+i+"].facilityId: " + referralData[i].facilityId);
         for (var j=0; j<dimensionData.data["facilities"].length; j++) {
@@ -94,26 +94,20 @@ function render(response) {
 
     // Parse JSON string into object
     referralData = JSON.parse(response);
-//    console.log(referralData);
 
     dataTranslation(dimensionData, referralData);
 
     var ndx = crossfilter(referralData);
 
-//            var parseDate = d3.time.format("%m/%d/%Y").parse;
-//            var parseDate = d3.time.format("%Y-%m-%dT%H:%M:%SZ");
-
-//    var theDate = new Date(referralData[i].date);
-//    var dd = theDate.getDay();
-//    var mm = theDate.getMonth() + 1;
-//    var yy = theDate.getFullYear();
-//    referralData[i].date = yy + '-' + mm + '-' + dd;
-
-//    var dateFormat = d3.time.format("%m/%d/%Y");
     referralData.forEach(function (d) {
         d.orderByDate =  d.date;
-        d.date = d3.time.format("%Y-%m-%d").parse(d.date);
+        d.date = new Date(d.date).getTime();
     });
+
+//    referralData.forEach(function (d) {
+//        d.orderByDate =  d.date;
+//        d.date = d3.time.format("%Y-%m-%d").parse(d.date);
+//    });
 
 //    print_filter("referralData");
 
@@ -151,50 +145,6 @@ function render(response) {
         return d.referralCount;
     });
 
-//    var sourceActivePatients = dateDim.group().reduce(
-//        function (p, v) {
-////            console.log("v date: " + v);
-//            p.active_patients += v.active_patients;
-//            return p;
-//        },
-//        function (p, v) {
-//            p.active_patients -= v.active_patients;
-//            return p;
-//        },
-//        function () {
-//            return {active_patients: 0};
-//        }
-//    );
-//
-////    debugger;
-//    var sourceDischargedPatients = dateDim.group().reduce(
-//        function (p, v) {
-//            p.discharged_patients += v.discharged_patients;
-//            return p;
-//        },
-//        function (p, v) {
-//            p.discharged_patients -= v.discharged_patients;
-//            return p;
-//        },
-//        function () {
-//            return {discharged_patients: 0};
-//        }
-//    );
-//
-//    var sourceNotYetSeen = dateDim.group().reduce(
-//        function (p, v) {
-//            p.not_yet_seen += v.not_yet_seen;
-//            return p;
-//        },
-//        function (p, v) {
-//            p.not_yet_seen -= v.not_yet_seen;
-//            return p;
-//        },
-//        function () {
-//            return {not_yet_seen: 0};
-//        }
-//    );
-
     // Prepare dimension groups for composite chart
     var clinicIdsByReferralCount = clinicIdDim.group().reduceSum(function (d) {
         return d.referralCount;
@@ -210,17 +160,20 @@ function render(response) {
     var secondPlaceReferringClinicReferralsByTimesName = top3ClinicNamesByReferralCount[1].key;
     var thirdPlaceReferringClinicReferralsByTimesName = top3ClinicNamesByReferralCount[2].key;
 
+    console.log("top3ClinicIdsByReferralCount[0].key: " + top3ClinicIdsByReferralCount[0].key);
+    console.log("top3ClinicIdsByReferralCount[1].key: " + top3ClinicIdsByReferralCount[1].key);
+    console.log("top3ClinicIdsByReferralCount[2].key: " + top3ClinicIdsByReferralCount[2].key);
 
     var firstPlaceReferringClinicReferralsByTime = dateDim.group().reduce(
         function (p, v) {
-            if (v.facilityId === 0) {
+            if (v.facilityId === top3ClinicIdsByReferralCount[0].key) {
                 p.referralCount += v.referralCount;
             }
 
             return p;
         },
         function (p, v) {
-            if (v.facilityId === 0) {
+            if (v.facilityId === top3ClinicIdsByReferralCount[0].key) {
                 p.referralCount -= v.referralCount;
             }
 
@@ -233,14 +186,14 @@ function render(response) {
 
     var secondPlaceReferringClinicReferralsByTime = dateDim.group().reduce(
         function (p, v) {
-            if (v.facilityId === 1) {
+            if (v.facilityId === top3ClinicIdsByReferralCount[1].key) {
                 p.referralCount += v.referralCount;
             }
 
             return p;
         },
         function (p, v) {
-            if (v.facilityId === 1) {
+            if (v.facilityId === top3ClinicIdsByReferralCount[1].key) {
                 p.referralCount -= v.referralCount;
             }
 
@@ -253,14 +206,14 @@ function render(response) {
 
     var thirdPlaceReferringClinicReferralsByTime = dateDim.group().reduce(
         function (p, v) {
-            if (v.facilityId === 2) {
+            if (v.facilityId === top3ClinicIdsByReferralCount[2].key) {
                 p.referralCount += v.referralCount;
             }
 
             return p;
         },
         function (p, v) {
-            if (v.facilityId === 2) {
+            if (v.facilityId === top3ClinicIdsByReferralCount[2].key) {
                 p.referralCount -= v.referralCount;
             }
 
@@ -346,6 +299,7 @@ function render(response) {
         .x(d3.time.scale().domain([minDate, maxDate]))
         .round(d3.time.month.round)
         .xUnits(d3.time.months)
+        .yAxisLabel("Referral Counts")
         .elasticY(true)
         .renderHorizontalGridLines(true)
         .legend(dc.legend().x(60).y(10).itemHeight(13).gap(5))
