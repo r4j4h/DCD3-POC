@@ -212,9 +212,9 @@ function render(response) {
 //        .label(function(d) {
 //            return JSON.stringify(d);
 //        })
-        .colorAccessor(function (d) {
-            return d.key;
-        })
+//        .colorAccessor(function (d) {
+//            return d.key;
+//        })
         .width(150).height(150)
         .dimension(clinicNameDim)
         .group(clinicTotal)

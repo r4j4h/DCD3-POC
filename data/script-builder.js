@@ -45,9 +45,12 @@ function createReferralSourceDataRecord(year, month, sourceId) {
     record.sourceId = sourceId;
     record.typeId = sourceTypes[record.sourceId];
 
-    record.active_patients = Math.floor(Math.random() * 100);
-    record.discharged_patients = Math.floor(Math.random() * 100);
-    record.not_yet_seen = Math.floor(Math.random() * 100);
+    record.active_patients = Math.floor(Math.random() * 5) + 20;
+    record.discharged_patients = Math.floor(Math.random() * 5) + 20;
+    record.not_yet_seen = Math.floor(Math.random() * 5) + 20;
+//    record.active_patients = Math.floor(Math.random() * 100);
+//    record.discharged_patients = Math.floor(Math.random() * 100);
+//    record.not_yet_seen = Math.floor(Math.random() * 100);
     record.referralCount = record.active_patients +
         record.discharged_patients +
         record.not_yet_seen;
