@@ -47,7 +47,6 @@
             <span class="reset" style="display: none;">range: <span class="filter"></span></span>
 
         </div>
-        <label>Total:</label>
     </div>
 
     <div class="total-referrals-container">
@@ -57,11 +56,11 @@
                     <td><span id="active-patients-total"></span></td>
                 </tr>
                 <tr>
-                    <th>Dioscharged</th>
+                    <th>Discharged</th>
                     <td><span id="discharged-patients-total"></span></td>
                 </tr>
             <tr>
-                <th>N</th>
+                <th>Not Yet Seen</th>
                 <td><span id="not-yet-seen-patients-total"></span></td>
             </tr>
             <tr>
@@ -77,7 +76,7 @@
         <div id="composite-test-chart">
             <strong>Total Referral Counts By Clinic</strong>
             <span class="reset" style="display: none;">range: <span class="filter"></span></span>
-            <a class="reset" href="javascript:compositeTestChart.filterAll();referralsLineChart.filterAll();dc.redrawAll();"
+            <a class="reset" href="javascript:compositeTestChart.filterAll();referralsBarChart.filterAll();dc.redrawAll();"
                style="display: none;">reset</a>
 
             <div class="clearfix"></div>
@@ -85,10 +84,10 @@
     </div>
 
     <div class="row">
-        <div id="chart-line-referrals-totals">
+        <div id="chart-bar-referrals-totals">
             <strong>Total Referral Counts</strong>
             <span class="reset" style="display: none;">range: <span class="filter"></span></span>
-            <a class="reset" href="javascript:compositeTestChart.filterAll();referralsLineChart.filterAll();dc.redrawAll();"
+            <a class="reset" href="javascript:compositeTestChart.filterAll();referralsBarChart.filterAll();dc.redrawAll();"
                style="display: none;">reset</a>
 
             <div class="clearfix"></div>
