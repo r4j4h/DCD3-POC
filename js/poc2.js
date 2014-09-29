@@ -1,11 +1,7 @@
 var referralData;
 var dimensionData;
-var referralsBarChart;//=dc.lineChart("#chart-line-referrals-totals");
-//var referralsBarChart = dc.barChart("#chart-line-referrals-totals");
-var compositeTestChart;// = dc.compositeChart("#composite-test-chart");
-var sourceActivePatients;
-var sourceDischargedPatients;
-var sourceNotYetSeen;
+var referralsBarChart;
+var compositeTestChart;
 
 function print_filter(filter) {
     var f = eval(filter);
@@ -42,7 +38,6 @@ function loadJSON(url, callback) {
 function processDimensions(response) {
     // Parse JSON string into object
     dimensionData = JSON.parse(response);
-//    console.log(dimensionData);
     loadJSON('data/referral-query-results-extended.json', render);
 }
 
@@ -50,19 +45,9 @@ function dataTranslation(dimensionData, referralData) {
     console.log("dataTranslation referralData.length: " + referralData.length);
 
     for (var i=0; i<referralData.length; i++) {
-//        var theDate = new Date(referralData[i].date);
-//
-//        var dd = theDate.getDay() + 1;
-//        var mm = theDate.getMonth() + 1;
-//        var yy = theDate.getFullYear();
-//        referralData[i].date = yy + '-' + mm + '-' + dd;
-//        console.log(referralData[i].date);
-
-//        console.log("dataTranslation referralData["+i+"].facilityId: " + referralData[i].facilityId);
         for (var j=0; j<dimensionData.data["facilities"].length; j++) {
             if (dimensionData.data["facilities"][j].id == referralData[i].facilityId) {
                 referralData[i].facilityName = dimensionData.data["facilities"][j].name;
-//                console.log(dimensionData.data["facilities"][j].name);
                 break;
             }
         }
@@ -70,7 +55,6 @@ function dataTranslation(dimensionData, referralData) {
         for (var j=0; j<dimensionData.data["referralTypes"].length; j++) {
             if (dimensionData.data["referralTypes"][j].id == referralData[i].typeId) {
                 referralData[i].referralTypeName = dimensionData.data["referralTypes"][j].name;
-//                console.log(dimensionData.data["referralTypes"][j].name);
                 break;
             }
         }
@@ -78,7 +62,6 @@ function dataTranslation(dimensionData, referralData) {
         for (var j=0; j<dimensionData.data["referralSources"].length; j++) {
             if (dimensionData.data["referralSources"][j].id == referralData[i].sourceId) {
                 referralData[i].referralSourceName = dimensionData.data["referralSources"][j].name;
-//                console.log(dimensionData.data["referralSources"][j].name);
                 break;
             }
         }
@@ -148,10 +131,9 @@ function render(response) {
     }
 
     var colors = ["#46D5EB", "#4693EB", "#eeff00", "#ff0022", "#2200ff"];
-//    var colors = ['red', 'green', 'blue', 'orange', 'yellow'];
-
     var colorChoice = d3.scale.ordinal().domain(clinicReferralsByTimesName)
-        .range(["#46D5EB", "#4693EB", "#eeff00", "#ff0022", "#2200ff"]);
+        .range(colors);
+//    var colors = ['red', 'green', 'blue', 'orange', 'yellow'];
 
     var referringClinicReferralsByTime = [];
     for (var i=0; i<n; i++) {
@@ -230,18 +212,15 @@ function render(response) {
 //        .label(function(d) {
 //            return JSON.stringify(d);
 //        })
-//        .colorAccessor(function (d) {
-//
-//        })
+        .colorAccessor(function (d) {
+            return d.key;
+        })
         .width(150).height(150)
         .dimension(clinicNameDim)
         .group(clinicTotal)
         .on('filtered', anyFilterChangedHandler)
-//
+        .colors(colorChoice)
         .innerRadius(0);
-
-    var colorScale = d3.scale.ordinal().range(colors);
-//    clinicPieChart.colors(colorScale);
 
     var typePieChart = dc.pieChart("#chart-pie-type");
     typePieChart
@@ -299,22 +278,20 @@ function render(response) {
     for (var i=0; i<n; i++) {
         clinicLineCharts.push(dc.lineChart(compositeTestChart)
             .dimension(dateDim)
-            .colors(colors[i])
             .group(referringClinicReferralsByTime[i], clinicReferralsByTimesName[i])
             .valueAccessor(function (d) {
                 return d.value.referralCount;
             })
+            .colors(colorChoice)
             .renderArea(true)
         );
     }
 
     compositeTestChart
-//        .renderArea(true)
         .width(990)
         .height(250)
         .transitionDuration(1000)
         .margins({top: 30, right: 50, bottom: 25, left: 40})
-//        .dimension(dateDim)
         .mouseZoomable(true)
         // Specify a range chart to link the brush extent of the range with the zoom focus of the current chart.
         .rangeChart(referralsBarChart)
@@ -336,64 +313,6 @@ function render(response) {
         .on('filtered', anyFilterChangedHandler)
         .compose(clinicLineCharts)
     ;
-//        .compose([
-//        firstLineChart,
-//        dc.lineChart(compositeTestChart)
-//            .dimension(dateDim)
-//            .colors('green')
-//            .group(secondPlaceReferringClinicReferralsByTime, secondPlaceReferringClinicReferralsByTimesName)
-//            .valueAccessor(function (d) {
-//                return d.value.referralCount;
-//            })
-//            .renderArea(true)
-//        ,
-//        dc.lineChart(compositeTestChart)
-//            .dimension(dateDim)
-//            .colors('blue')
-//            .group(thirdPlaceReferringClinicReferralsByTime, thirdPlaceReferringClinicReferralsByTimesName)
-//            .valueAccessor(function (d) {
-//                return d.value.referralCount;
-//            })
-////                .title(function (d) {
-////                    return d.value.referralCount;
-////        //            var value = d.value.avg ? d.value.avg : d.value;
-////        //            if (isNaN(value)) value = 0;
-////        //            return dateFormat(d.key) + "\n" + numberFormat(value);
-////                })
-//            .renderArea(true)
-//    ]);
-
-//    referralsBarChart
-//        .width(990)
-//        .height(200)
-//        .dimension(dateDim)
-//        .group(sourceActivePatients, "Active")
-//        .stack(sourceDischargedPatients, "Discharged")
-//        .stack(sourceNotYetSeen, "Not Yet Seen")
-//        .mouseZoomable(true)
-//        .renderArea(true)
-//        .x(d3.time.scale().domain([minDate, maxDate]))
-//        .brushOn(false)
-//        .legend(dc.legend().x(50).y(10).itemHeight(13).gap(5))
-////        .yAxisLabel("Referral Counts")
-//        .xAxis(d3.svg.axis()
-////            .ticks(d3.time.years, 1)
-////            .tickFormat(d3.time.format('%Y')));
-//            .ticks(d3.time.months, 1)
-//            .tickFormat(d3.time.format('%b %Y')));
-
-//    referralsBarChart.width(990)
-//        .height(40)
-//        .margins({top: 0, right: 50, bottom: 20, left: 40})
-//        .dimension(dateDim)
-//        .group(referralCounts)
-//        .centerBar(true)
-//        .gap(1)
-//        .x(d3.time.scale().domain([minDate, maxDate]))
-//        .round(d3.time.month.round)
-//        .alwaysUseRounding(true)
-//        .xUnits(d3.time.months)
-//        .brushOn(true);
 
     var datatable = dc.dataTable("#sources-data-table");
     datatable
