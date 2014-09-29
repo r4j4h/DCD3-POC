@@ -69,3 +69,14 @@ body {
 #sources-data-table-container tbody tr td {
     border:1px solid #cccccc;
 }
+
+
+.total-referrals-container {
+    overflow: auto; /* prevent chart boxes from collapsing */
+    box-sizing: auto;
+
+    border: 1px solid gray;
+    padding: 1em;
+    width: 80%;
+    margin: auto;
+}

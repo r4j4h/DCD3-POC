@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!--<script type="text/javascript" src="js/vendor/jquery-2.0.0.min.js" charset="utf-8"></script>-->
+    <script type="text/javascript" src="js/vendor/jquery-2.0.0.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/vendor/crossfilter.min.js" charset="utf-8"></script>
 
     <script type="text/javascript" src="js/vendor/d3.min.js" charset="utf-8"></script>
@@ -24,20 +24,53 @@
     </div>
 
     <div class="chart-box">
-        <div id="chart-pie-clinic"></div>
-        <label>Referral Counts by Clinic</label>
-        <label>Total:</label>
+        <div id="chart-pie-clinic">
+            <strong>Referral Counts by Clinic</strong>
+            <span class="reset" style="display: none;">range: <span class="filter"></span></span>
+
+            <div class="clearfix"></div>
+        </div>
+
     </div>
     <div class="chart-box">
-        <div id="chart-pie-type"></div>
-        <label>Referral Counts by Referral Type</label>
-        <label>Total:</label>
+        <div id="chart-pie-type">
+            <strong>Referral Counts by Referral Type</strong>
+            <span class="reset" style="display: none;">range: <span class="filter"></span></span>
+
+            <div class="clearfix"></div>
+        </div>
+
     </div>
     <div class="chart-box">
         <div id="chart-pie-source">
+            <strong>Referral Counts by Referral Source</strong>
+            <span class="reset" style="display: none;">range: <span class="filter"></span></span>
+
         </div>
-        <label>Referral Counts by Referral Source</label>
         <label>Total:</label>
+    </div>
+
+    <div class="total-referrals-container">
+        <table>
+                <tr>
+                    <th>Active</th>
+                    <td><span id="active-patients-total"></span></td>
+                </tr>
+                <tr>
+                    <th>Dioscharged</th>
+                    <td><span id="discharged-patients-total"></span></td>
+                </tr>
+            <tr>
+                <th>N</th>
+                <td><span id="not-yet-seen-patients-total"></span></td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td><span id="total-referred-patients-total"></span></td>
+            </tr>
+            </tbody>
+        </table>
+</div>
     </div>
 
     <div class="row">

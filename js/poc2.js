@@ -242,12 +242,49 @@ function render(response) {
 //    var maxDate = d3.time.month.offset(dateDim.top(1)[0].date, 1);
     console.log("minDate: " + minDate);
     console.log("maxDate: " + maxDate);
+//    var reduceClinicTotal = clinicIdDim.group(clinicTotal.reduceSum(function(d) { return d.value; }));
+
+    function anyFilterChangedHandler()
+    {
+        var allOfEm = clinicIdDim.top(Infinity);
+
+        var referralCountTotals = 0;
+        $.each(allOfEm, function(idx, e) {
+            referralCountTotals += e.referralCount;
+        });
+        $('#total-referred-patients-total').text( referralCountTotals);
+
+        var totalActivePatients = 0;
+        $.each(allOfEm, function(idx, e) {
+            totalActivePatients += e.active_patients;
+        });
+        $('#active-patients-total').text( totalActivePatients);
+
+        var totalDischargedPatients = 0;
+        $.each(allOfEm, function(idx, e) {
+            totalDischargedPatients += e.discharged_patients;
+        });
+        $('#discharged-patients-total').text(totalDischargedPatients);
+
+        var nysPatients = 0;
+        $.each(allOfEm, function(idx, e) {
+            nysPatients += e.not_yet_seen;
+        });
+        $('#not-yet-seen-patients-total').text( nysPatients);
+
+
+    }
 
     var clinicPieChart = dc.pieChart("#chart-pie-clinic");
     clinicPieChart
+//        .label(function(d) {
+//            return JSON.stringify(d);
+//        })
         .width(150).height(150)
         .dimension(clinicNameDim)
         .group(clinicTotal)
+        .on('filtered', anyFilterChangedHandler)
+//
         .innerRadius(0);
 
     var typePieChart = dc.pieChart("#chart-pie-type");
@@ -255,6 +292,7 @@ function render(response) {
         .width(150).height(150)
         .dimension(typeDim)
         .group(typeTotal)
+        .on('filtered', anyFilterChangedHandler)
         .innerRadius(0);
 
     var sourcePieChart = dc.pieChart("#chart-pie-source");
@@ -262,6 +300,7 @@ function render(response) {
         .width(150).height(150)
         .dimension(sourceDim)
         .group(sourceTotal)
+        .on('filtered', anyFilterChangedHandler)
         .innerRadius(0)
         .data(function(d) {return d.order(function (d){return d.referralCount;}).top(10)})
         .ordering(function(d){return d.sourceId;});
@@ -316,6 +355,7 @@ function render(response) {
         .title(function (d) {
             return d.value.referralCount + "\n" + d.value.date;
         })
+        .on('filtered', anyFilterChangedHandler)
         .compose([
             firstLineChart,
             dc.lineChart(compositeTestChart)
