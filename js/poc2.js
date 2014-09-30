@@ -68,6 +68,27 @@ function dataTranslation(dimensionData, referralData) {
     }
 }
 
+function hookUpEventListeners() {
+
+    function hookUpResetAllLinks()
+    {
+        $('.reset-link' ).on('click', function() {
+            compositeTestChart.filterAll();referralsBarChart.filterAll();dc.redrawAll();
+        });
+    }
+
+    function hookUpResetZoomLinks()
+    {
+        $('.rest-time-to-zoom-link').on('click', function() {
+            dc.filterAll(); dc.redrawAll();
+        });
+    }
+
+    hookUpResetAllLinks();
+    hookUpResetZoomLinks();
+
+}
+
 function render(response) {
 //    $('#chart-pie-clinic').on('click', function(){
 //        console.log("HIIIII!!!!!");
@@ -79,6 +100,8 @@ function render(response) {
     referralData = JSON.parse(response);
 
     dataTranslation(dimensionData, referralData);
+
+
 
     var ndx = crossfilter(referralData);
 
@@ -351,10 +374,17 @@ function render(response) {
             return [d.typeId, d.sourceId];
         });
 
+    hookUpEventListeners();
+
     dc.renderAll();
     anyFilterChangedHandler();
+
 }
 
 function displayCharts() {
     loadJSON('data/referral-dimension-data-extended.json', processDimensions);
+}
+
+function onOnLoad() {
+    displayCharts();
 }
